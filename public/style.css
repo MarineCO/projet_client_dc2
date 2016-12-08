@@ -6,6 +6,10 @@ html, body {
   margin-bottom: 0;
   font-family: "Open sans", Sans-serif; }
 
+  .logo {
+  height: 5em;
+  width: 3em; }
+
 .subtitleContainer {
   color: grey;
   margin-top: 0;
@@ -114,5 +118,11 @@ li {
 .containerForm {
   width: 60%;
   margin: 5em auto; }
+
+  .ui.inverted.vertical.footer.segment {
+ padding-top: 3em; }
+
+  .footer {
+  margin-top: 10em; }
 
 /*# sourceMappingURL=style.css.map */
