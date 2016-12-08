@@ -34,9 +34,19 @@
 		},
 
 		mailSent: function() {
-			console.log("ajouter alert");
+			swal(
+				'Super',
+				'Votre message a bien été envoyé !'
+				)
+		},
+		mailNoSent : function(){
+			swal(
+				'Oh je crois que nous avons un souci'
+				)
+		},
+		returnToHome : function(){
+			console.log('ça ramène à la home'); 
 		}
-
 
 	};
 
