@@ -1,0 +1,30 @@
+
+$red : #BC2224;
+$lightGrey : grey;
+$darkGrey : #2F2F2F;
+$white : #f4f5f9;
+$blue : #0080ff;
+
+html, body {
+	font-size: 20px;
+	font-family: "Open sans", Sans-serif;
+}
+
+.titleContainer {
+	margin-bottom: 0;
+	font-family: "Open sans", Sans-serif;
+}
+
+.subtitleContainer {
+	color: $lightGrey;
+	margin-top: 0;
+	margin-bottom: 2em;
+}
+
+@import "partieHeader";
+@import "partieConcept";
+@import "partieCommentFaire";
+@import "partieCarte";
+@import "carteProfil";
+@import "pageContact";
+

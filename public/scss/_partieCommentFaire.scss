@@ -1,0 +1,40 @@
+.comment {
+	padding: 5em 5em;
+	background-color: #222222;
+	font-family: "Open sans", Sans-serif;
+	color: white;
+}
+
+.titleComment {
+	color: $red;
+	font-size: 1.5em;
+}
+
+.textComment {
+	width: 90%;
+}
+
+.stepsComment {
+	width: 90%;
+	margin-top: 2em;
+}
+
+.pictoComment {
+	text-align: center;
+	margin: 0.8em 0;
+
+	a {
+		text-decoration: none;
+		color: white;
+
+		&:hover {
+			color: $red;
+		}
+	}
+}
+
+.buttonComment {
+	text-align: right;
+	margin-top: 2em;
+	margin-right: 4em;
+}

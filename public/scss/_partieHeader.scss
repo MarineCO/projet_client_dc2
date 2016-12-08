@@ -1,0 +1,56 @@
+.mainHeader {
+	background-color: $red;
+	color: $white;
+	padding: 2em 5em;
+	font-family: "Open sans", Sans-serif;
+}
+
+.menu {
+
+	.leftMenu {
+		display: inline-block;
+
+		h1 {
+			line-height: 1em;
+			display: inline-block;
+		}
+	}
+
+	.rightMenu {
+		display: inline-block;
+		float: right;
+
+		li {
+			display: inline-block;
+			list-style: none;
+			text-decoration: none;
+			margin: 0 auto;
+			width: 8em;
+			text-align: center;
+		}
+
+		a {
+			color: $white;
+
+			&:hover {
+				border-bottom: 0.1em solid $white;
+			}
+		}
+	}
+}
+
+
+.textHeader {
+
+	margin: 10em 0;
+
+	h2 {
+		font-size: 1em;
+		margin: 2em 0;
+	}
+
+}
+
+.ui.inverted.button.joinBtn {
+	margin-left: 2em;
+}
