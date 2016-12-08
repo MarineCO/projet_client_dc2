@@ -43,7 +43,7 @@
 				)
 		},
 		returnToHome : function(){
-			console.log('ça ramène à la home');
+			console.log('ça ramène à la home'); 
 		}
 
 
