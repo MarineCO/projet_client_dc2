@@ -11,10 +11,13 @@
 			$('.prenom').html(appContact.dataProfile.prenom);
 			$('.nom').html(appContact.dataProfile.nom);
 			this.listeners();
+			appContact.toHide();
+			appContact.reset();
 		},
 
 		listeners: function() {
 			$('#btnSendMail').on('click', this.getMailData);
+
 		},
 
 		getMailData: function() {
@@ -30,22 +33,17 @@
 				data: {nameExp: nameExp, mailExp: mailExp, id: idProfile, mailObj: mailObj, contentMail: contentMail}
 			})
 			.done(appContact.mailSent())
-			.fail();
+			.fail(appContact.mailNoSent());
 		},
 
 		mailSent: function() {
-			swal(
-				'Super',
-				'Votre message a bien été envoyé !'
-				)
+			console.log('succes');
+			$('.success').html('Votre message est bien parti !')
+			$('#hide').show();
+
 		},
-		mailNoSent : function(){
-			swal(
-				'Oh je crois que nous avons un souci'
-				)
-		},
-		returnToHome : function(){
-			console.log('ça ramène à la home'); 
+		toHide : function(){
+			$('#hide').hide();
 		}
 
 	};

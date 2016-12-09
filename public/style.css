@@ -125,4 +125,11 @@ li {
   .footer {
   margin-top: 10em; }
 
+  .success{
+    width: 100%;
+  height : 55px;
+  background-color: #ff7473;
+  color : #fff;
+  }
+
 /*# sourceMappingURL=style.css.map */
