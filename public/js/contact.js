@@ -11,10 +11,12 @@
 			$('.prenom').html(appContact.dataProfile.prenom);
 			$('.nom').html(appContact.dataProfile.nom);
 			this.listeners();
+			appContact.toHide();
 		},
 
 		listeners: function() {
 			$('#btnSendMail').on('click', this.getMailData);
+
 		},
 
 		getMailData: function() {
@@ -25,26 +27,25 @@
 			var mailObj = $('#mailObj').val();
 			var contentMail = $('#contentMail').val();
 
-			
-
 			if($.trim(mailExp).length == 0 || nameExp == "" || mailObj == "" || contentMail == "") {
-				alert('Vous n\'avez pas rempli tous les champs');
+				$('.error').html('<p>' + 'Vous n\'avez pas rempli tous les champs' + '</p>')
+				$('#hide').show();
 				event.preventDefault();
 			}
-			if (!appContact.validateEmail(mailExp)) {
-				alert('Votre mail n\'est pas valide');
+			else if (!appContact.validateEmail(mailExp)) {
+				$('.error').html('<p>' + 'Votre mail n\'est pas valide'+ '</p>')
+				$('#hide').show();
 			}
-
-
-			appContact.validateEmail(mailExp);
-
-			$.post({
-				url: '/sendMail',
-				method: 'POST',
-				data: {nameExp: nameExp, mailExp: mailExp, id: idProfile, mailObj: mailObj, contentMail: contentMail}
-			})
-			.done(appContact.mailSent())
-			.fail();
+			else {
+				appContact.reset();
+				$.post({
+					url: '/sendMail',
+					method: 'POST',
+					data: {nameExp: nameExp, mailExp: mailExp, id: idProfile, mailObj: mailObj, contentMail: contentMail}
+				})
+				.done(appContact.mailSent())
+				.fail(appContact.mailNoSent());
+			}
 		},
 
 		validateEmail: function(mailExp) {
@@ -58,7 +59,17 @@
 		},
 
 		mailSent: function() {
-			console.log("ajouter alert");
+			console.log('success');
+			$('#hide').show();
+			$('.success').html('<p>' + 'Votre message est bien parti !'+ '</p>')
+		},
+
+		toHide : function(){
+			$('#hide').hide();
+		},
+
+		reset: function() {
+			$('#error').html('');
 		}
 	};
 

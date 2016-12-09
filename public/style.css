@@ -6,10 +6,6 @@ html, body {
   margin-bottom: 0;
   font-family: "Open sans", Sans-serif; }
 
-  .logo {
-  height: 5em;
-  width: 3em; }
-
 .subtitleContainer {
   color: grey;
   margin-top: 0;
@@ -117,12 +113,20 @@ li {
 
 .containerForm {
   width: 60%;
-  margin: 5em auto; }
+  margin-top: 1.5em;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 1em; }
 
-  .ui.inverted.vertical.footer.segment {
- padding-top: 3em; }
-
-  .footer {
-  margin-top: 10em; }
+.hide {
+  width: 100%;
+  height: 10%;
+  background-color: #BC2224;
+  color: #fff; }
+  .hide .error, .hide .success {
+    text-align: center; }
+    .hide .error p, .hide .success p {
+      margin: 0;
+      padding: 1.5em; }
 
 /*# sourceMappingURL=style.css.map */

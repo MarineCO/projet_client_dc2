@@ -1,4 +1,23 @@
 .containerForm {
 	width: 60%;
-	margin: 5em auto;
+	margin-top: 1.5em;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 1em;
 }
+
+.hide {
+	width: 100%;
+	height : 10%;
+	background-color: $red;
+	color : #fff;
+
+	.error, .success {
+		text-align: center;
+		p {
+			margin: 0;
+			padding: 1.5em;
+		}
+	}
+}
+

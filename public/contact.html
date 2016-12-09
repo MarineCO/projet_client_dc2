@@ -4,10 +4,14 @@
 	<meta charset="UTF-8">
 	<title>Contacter par mail</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.2.1/sweetalert2.min.css">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+	<div class="hide" id="hide">
+		<div class="success" id="success"></div>
+		<div class="error" id="error"></div>
+	</div>
 	<div class="containerForm">
 
 		<h1>Envoyer un mail à <span class="prenom"></span> <span class="nom"></span></h1>
@@ -15,7 +19,7 @@
 
 			<div class="field">
 				<label for="nameExp">Votre nom</label>
-				<input id="nameExp" type="text" name="nameExp">
+				<input id="nameExp" type="text" name="nameExp" required="required">
 			</div>
 
 			<div class="field" id="mail">
@@ -25,12 +29,12 @@
 
 			<div class="field">
 				<label for="mailObj">Objet du message</label>
-				<input id="mailObj" type="text" name="mailObj">
+				<input id="mailObj" type="text" name="mailObj" required="required">
 			</div>
 
 			<div class="field">
 				<label for="contentMail">Votre message</label>
-				<textarea name="contentMail" id="contentMail" cols="30" rows="10"></textarea>
+				<textarea name="contentMail" id="contentMail" cols="30" rows="8" required="required"></textarea>
 			</div>
 
 			<a class="ui grey button" href="/">Retourner sur la home</a><button id="btnSendMail" class="ui red button">Envoyer</button>

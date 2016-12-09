@@ -15,6 +15,28 @@
 		init: function() {
 			this.initmap();
 			this.getDataCityMarrainage();
+			this.textHoverCommentFaire();
+		},
+
+		textHoverCommentFaire: function() {
+			$('.filleule1').hover(function() {
+				$('.divFilleule').html("<h4>1. Je crée mon profil</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>");
+			});
+			$('.filleule2').hover(function() {
+				$('.divFilleule').html("<h4>2. Je m'inscris sur Facebook</h4><p>Voluptate aperiam, tempora nemo dicta debitis dignissimos, velit ullam maxime nobis.</p>");
+			});
+			$('.filleule3').hover(function() {
+				$('.divFilleule').html("<h4>3. Je contacte une marraine</h4><p>Consequatur, maxime doloremque quos nihil, possimus et accusamus autem blanditiis laboriosam!</p>");
+			});
+			$('.marraine1').hover(function() {
+				$('.divMarraine').html("<h4>1. Je crée mon profil</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>");
+			});
+			$('.marraine2').hover(function() {
+				$('.divMarraine').html("<h4>2. Je m'inscris sur Facebook</h4><p>Voluptate aperiam, tempora nemo dicta debitis dignissimos, velit ullam maxime nobis.</p>");
+			});
+			$('.marraine3').hover(function() {
+				$('.divMarraine').html("<h4>3. Je contacte une filleule</h4><p>Consequatur, maxime doloremque quos nihil, possimus et accusamus autem blanditiis laboriosam!</p>");
+			});
 		},
 
 		initmap: function() {
