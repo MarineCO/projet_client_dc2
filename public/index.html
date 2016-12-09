@@ -293,31 +293,33 @@
 			</div>
 		</div>
 
+			<!-- Template mustache -->
+			<script id="templatePopUpProfile" type="text/template">
+				<div id="carteProfil">
+					<ul >
+						<li id="statut">Statut : {{status}}</li>
+						<li id="firstName">Prénom : {{prenom}} </li>
+						<li id="lastName">Nom : {{nom}} </li>
+						<li id="job">Job : {{profession}} </li>
+						<li id="location">Situation géographique : {{ville}}</li>
+						<li id="description">Description : {{description}} </li>
+						<li id="interaction">Mode d'interaction préféré : {{modeInteraction}} </li>
+					</ul>
+					<a class="ui red fluid button buttonProfile" id="{{id}}" href="/contact.html">Me contacter</a>
+				</div>
+			</script>
+			<!-- Fin template mustache -->
 
-		<!-- Template mustache -->
-		<script id="templatePopUpProfile" type="text/template">
-			<div id="carteProfil">
-				<ul >
-					<li id="statut">Statut : {{status}}</li>
-					<li id="firstName">Prénom : {{prenom}} </li>
-					<li id="lastName">Nom : {{nom}} </li>
-					<li id="job">Job : {{profession}} </li>
-					<li id="location">Situation géographique : {{ville}}</li>
-					<li id="description">Description : {{description}} </li>
-					<li id="interaction">Mode d'interaction préféré : {{modeInteraction}} </li>
-				</ul>
-				<a class="ui red fluid button buttonProfile" id="{{id}}" href="/contact.html">Me contacter</a>
-			</div>
-		</script>
-		<!-- Fin template mustache -->
+			<script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
+			<script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+			<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+			<script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.0/dist/leaflet.markercluster.js"></script>
+			<script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.0/dist/leaflet.markercluster-src.js"></script>
+			<script src="https://cdn.jsdelivr.net/mustache.js/2.3.0/mustache.min.js"></script>
+			<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+			<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+			<script type="text/javascript" src="js/map.js"></script>
 
-		<script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
-		<script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-		<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
-		<script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.0/dist/leaflet.markercluster.js"></script>
-		<script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.0/dist/leaflet.markercluster-src.js"></script>
-		<script src="https://cdn.jsdelivr.net/mustache.js/2.3.0/mustache.min.js"></script>
-		<script type="text/javascript" src="js/map.js"></script>
+		</body>
+		</html>
 
-	</body>
-	</html>
