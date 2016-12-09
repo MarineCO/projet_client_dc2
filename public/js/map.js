@@ -4,7 +4,7 @@
 
 	var app = {
 
-		map: new L.Map('map',{scrollWheelZoom:false}),
+		map: new L.Map('map',{scrollWheelZoom:false} ),
 
 		marker: null,
 

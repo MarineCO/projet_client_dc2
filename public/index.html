@@ -9,27 +9,33 @@
 	<link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.0/dist/MarkerCluster.css">
 	<link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.0/dist/MarkerCluster.Default.css">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 
 	<!-- Header-->
 	
-	<div class="mainHeader">
-
+	<div class="mainHeader" id="partieHeader">
 		<div class="menu">
 			<div class="leftMenu">
-				<img src="img/logo.png" class="logo">
-				<h1># AdoptADuchess</h1>
+				<div class="ui top fixed menu">
+					<div class="item">
+						<img src="img/logo.png" class="logo">
+					</div>
+					<h1 class="bordtitlemenu"># AdoptADuchess</h1>
+					<div class="ui right item">
+					<div class="ui secondary  menu">
+					<a href="#partieconcept" class="item" id="acolor">Concept</a></li>
+							<a href="#partiecomment" class="item" id="acolor">Join us</a></li>
+							<a href="#partiemap" class="item" id="acolor">Carte</a></li>
+						</div>
+					</div>
+
+				</div>
 			</div>
-			<div class="rightMenu">
-				<ul>
-					<li><a href="#partieconcept">Concept</a></li>
-					<li><a href="#partiecomment">Join us</a></li>
-					<li><a href="#partiemap" class="carte">Carte</a></li>
-				</ul>
-			</div>
+		</div>
+		<div class="rightMenu">
 		</div>
 
 		<div class="textHeader">
@@ -202,63 +208,83 @@
 
 						<div class="ui inverted section divider"></div>
 						<div class="three wide column">
-							<p>Réseaux sociaux</p>
+							<h4 class="ui inverted header">Réseaux sociaux</h4>
 						</div>
 						<div class="ui center aligned container">
-							<a href="https://www.facebook.com/duchessfr"  class="item">
-								<i class="facebook big red  icon"></i>
-							</a>
-							<a href="https://twitter.com/duchessfr" class="item">
-								<i  class="twitter big red icon"></i>
-							</a>
-							<a href="https://www.youtube.com/channel/UCohHHhj_fdfYlYT9l6DMNXg" class="item">
-								<i  class="youtube play big red  icon"></i>
-							</a>
-							<a href="https://plus.google.com/u/0/collections/" class="item">
-								<i  class="google plus circle big red  icon"></i>
-							</a>
-							<a href="https://www.linkedin.com/start/join?trk=login_reg_redirect&session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fgroups%2F2750811" class="item">
-								<i  class="linkedin square big red  icon"></i>
-							</a>
-							<a href="https://groups.google.com/forum/?hl=fr#!forum/duchessfr" class="item">
-								<i  class="google big red  icon"></i>
-							</a>
 
 
+							<div  class="logofooter">
+								<a href="https://www.facebook.com/duchessfr"  class="item">
+									<i class="facebook big  icon"></i>
+								</a>
+							</div>
+
+							<div  class="logofooter">
+								<a href="https://twitter.com/duchessfr" class="item">
+									<i  class="twitter big  icon"></i>
+								</a>
+							</div>
+
+							<div  class="logofooter">
+								<a href="https://www.youtube.com/channel/UCohHHhj_fdfYlYT9l6DMNXg" class="item">
+									<i  class="youtube play big   icon"></i>
+								</a>
+							</div>
+
+							<div  class="logofooter">
+								<a href="https://plus.google.com/u/0/collections/" class="item">
+									<i  class="google plus circle big  icon"></i>
+								</a>
+							</div>
+
+							<div  class="logofooter">
+								<a href="https://www.linkedin.com/start/join?trk=login_reg_redirect&session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fgroups%2F2750811" class="item">
+									<i  class="linkedin square big  icon"></i>
+								</a>
+							</div>
+
+							<div  class="logofooter">
+								<a href="https://groups.google.com/forum/?hl=fr#!forum/duchessfr" class="item">
+									<i  class="google big icon"></i>
+								</a>
+							</div>
 						</div>
+
+
 					</div>
-					<div class="ui center aligned container">
-						<div class="ui inverted section divider"></div>
-						
-					</div>
+				</div>
+				<div class="ui center aligned container">
+					<div class="ui inverted section divider"></div>
+
 				</div>
 			</div>
+		</div>
 
 
-			<!-- Template mustache -->
-			<script id="templatePopUpProfile" type="text/template">
-				<div id="carteProfil">
-					<ul >
-						<li id="statut">Statut : {{status}}</li>
-						<li id="firstName">Prénom : {{prenom}} </li>
-						<li id="lastName">Nom : {{nom}} </li>
-						<li id="job">Job : {{profession}} </li>
-						<li id="location">Situation géographique : {{ville}}</li>
-						<li id="description">Description : {{description}} </li>
-						<li id="interaction">Mode d'interaction préféré : {{modeInteraction}} </li>
-					</ul>
-					<a class="ui red fluid button buttonProfile" id="{{id}}" href="/contact.html">Me contacter</a>
-				</div>
-			</script>
-			<!-- Fin template mustache -->
+		<!-- Template mustache -->
+		<script id="templatePopUpProfile" type="text/template">
+			<div id="carteProfil">
+				<ul >
+					<li id="statut">Statut : {{status}}</li>
+					<li id="firstName">Prénom : {{prenom}} </li>
+					<li id="lastName">Nom : {{nom}} </li>
+					<li id="job">Job : {{profession}} </li>
+					<li id="location">Situation géographique : {{ville}}</li>
+					<li id="description">Description : {{description}} </li>
+					<li id="interaction">Mode d'interaction préféré : {{modeInteraction}} </li>
+				</ul>
+				<a class="ui red fluid button buttonProfile" id="{{id}}" href="/contact.html">Me contacter</a>
+			</div>
+		</script>
+		<!-- Fin template mustache -->
 
-			<script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
-			<script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-			<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
-			<script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.0/dist/leaflet.markercluster.js"></script>
-			<script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.0/dist/leaflet.markercluster-src.js"></script>
-			<script src="https://cdn.jsdelivr.net/mustache.js/2.3.0/mustache.min.js"></script>
-			<script type="text/javascript" src="js/map.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+		<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+		<script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.0/dist/leaflet.markercluster.js"></script>
+		<script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.0/dist/leaflet.markercluster-src.js"></script>
+		<script src="https://cdn.jsdelivr.net/mustache.js/2.3.0/mustache.min.js"></script>
+		<script type="text/javascript" src="js/map.js"></script>
 
-		</body>
-		</html>
+	</body>
+	</html>

@@ -1,0 +1,21 @@
+  .ui.inverted.vertical.footer.segment {
+  	padding-top: 3em; 
+  }
+
+  .footer {
+  	margin-top: 10em; 
+  }
+  .logofooter {
+  	margin: 0.8em 0;
+  	display: inline-block;
+
+  	a {
+  		text-decoration: none;
+  		color: white;
+
+
+  		&:hover {
+  			color: $red;
+  		}
+  	}
+  }
