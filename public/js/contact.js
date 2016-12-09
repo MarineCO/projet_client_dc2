@@ -24,6 +24,20 @@
 			var mailExp = $('#mailExp').val();
 			var mailObj = $('#mailObj').val();
 			var contentMail = $('#contentMail').val();
+
+			
+
+			if($.trim(mailExp).length == 0 || nameExp == "" || mailObj == "" || contentMail == "") {
+				alert('Vous n\'avez pas rempli tous les champs');
+				event.preventDefault();
+			}
+			if (!appContact.validateEmail(mailExp)) {
+				alert('Votre mail n\'est pas valide');
+			}
+
+
+			appContact.validateEmail(mailExp);
+
 			$.post({
 				url: '/sendMail',
 				method: 'POST',
@@ -33,14 +47,21 @@
 			.fail();
 		},
 
+		validateEmail: function(mailExp) {
+			var filter = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+			if (filter.test(mailExp)) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		},
+
 		mailSent: function() {
 			console.log("ajouter alert");
 		}
-
-
 	};
 
 	appContact.init();
-
 
 })();
