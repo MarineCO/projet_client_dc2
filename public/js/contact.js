@@ -16,6 +16,7 @@
 
 		listeners: function() {
 			$('#btnSendMail').on('click', this.getMailData);
+			$('.success #home').on('click', appContact.comeBackHome());
 
 		},
 
@@ -60,6 +61,7 @@
 
 		mailSent: function() {
 			console.log('success');
+			$('.success').html('Votre message est bien parti !' + '<a href="/" id="home" class="ui inverted button joinBtn"> Retour </a>');
 			$('#hide').show();
 			$('.success').html('<p>' + 'Votre message est bien parti !'+ '</p>')
 		},
