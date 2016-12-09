@@ -25,5 +25,8 @@ app.listen(2929, function(){
 	console.log('Ca marche sur ce port')
 });
 
-
-
+function redirect(){
+	$('a #home').click()
+		res.send('/');
+	
+}

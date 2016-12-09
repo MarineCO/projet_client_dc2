@@ -9,27 +9,34 @@
 	<link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.0/dist/MarkerCluster.css">
 	<link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.0/dist/MarkerCluster.Default.css">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 
 	<!-- Header-->
 	
-	<div class="mainHeader">
-
+	<div class="mainHeader" id="partieHeader">
 		<div class="menu">
 			<div class="leftMenu">
-				<img src="img/logo.png" class="logo">
-				<h1># AdoptADuchess</h1>
+				<div class="ui top fixed menu">
+					<div class="item">
+						<img src="img/logo.png" class="logo">
+					</div>
+					<h1 class="bordtitlemenu"># AdoptADuchess</h1>
+					<div class="ui right item">
+						<div class="ui secondary  menu">
+							<a href="#partieHeader" class="item smoothHeader" id="acolor" >Accueil</a></li>
+							<a href="#partieconcept" class="item smoothconcept" id="acolor" >Concept</a></li>
+							<a href="#partiecomment" class="item smoothJoinUs" id="acolor">Rejoignez-nous</a></li>
+							<a href="#partiemap" class="item smoothCarte" id="acolor">Carte</a></li>
+						</div>
+					</div>
+
+				</div>
 			</div>
-			<div class="rightMenu">
-				<ul>
-					<li><a href="#partieconcept">Concept</a></li>
-					<li><a href="#partiecomment">Join us</a></li>
-					<li><a href="#partiemap" class="carte">Carte</a></li>
-				</ul>
-			</div>
+		</div>
+		<div class="rightMenu">
 		</div>
 
 		<div class="textHeader">
@@ -77,6 +84,38 @@
 					<i class="heart icon"></i>
 					<div class="content">
 						Echanger
+						<div class="sub header">Lorem ipsum dolor sit amet</div>
+					</div>
+				</h3>
+				<div class=textConcept>Consectetur adipisicing elit. Quae animi exercitationem ratione perferendis nemo voluptates, veniam dicta eum quas, et sequi? Ab excepturi quasi, mollitia quisquam quas iusto ad voluptatem.</div>
+			</div>
+		</div>
+		<div class="ui equal width grid">
+			<div class="column">
+				<h3 class="ui header">
+					<i class="heart icon"></i>
+					<div class="content">
+						S'entraider
+						<div class="sub header">Lorem ipsum dolor sit amet</div>
+					</div>
+				</h3>
+				<div class=textConcept>Consectetur adipisicing elit. Quae animi exercitationem ratione perferendis nemo voluptates, veniam dicta eum quas, et sequi? Ab excepturi quasi, mollitia quisquam quas iusto ad voluptatem.</div>
+			</div>
+			<div class="column">
+				<h3 class="ui header">
+					<i class="heart icon"></i>
+					<div class="content">
+						Lorem ipsum
+						<div class="sub header">Lorem ipsum dolor sit amet</div>
+					</div>
+				</h3>
+				<div class=textConcept>Consectetur adipisicing elit. Quae animi exercitationem ratione perferendis nemo voluptates, veniam dicta eum quas, et sequi? Ab excepturi quasi, mollitia quisquam quas iusto ad voluptatem.</div>
+			</div>
+			<div class="column">
+				<h3 class="ui header">
+					<i class="heart icon"></i>
+					<div class="content">
+						Lorem ipsum
 						<div class="sub header">Lorem ipsum dolor sit amet</div>
 					</div>
 				</h3>
@@ -172,8 +211,8 @@
 	<!-- Map -->
 
 	<div class="mapContainer" id="partiemap">
-		<h2 class="titleContainer">Carte des filleules et marraines</h2>
-		<h3 class="subtitleContainer">Retrouvez les Duchess partout en France !</h3>
+		<h2 class="titleContainer" id="titremap">Carte des filleules et marraines</h2>
+		<h3 class="subtitleContainer" id="titremap">Retrouvez les Duchess partout en France !</h3>
 
 		<div id="map" class="map"></div>
 	</div>
@@ -202,38 +241,57 @@
 
 						<div class="ui inverted section divider"></div>
 						<div class="three wide column">
-							<p>Réseaux sociaux</p>
+							<h4 class="ui inverted header">Réseaux sociaux</h4>
 						</div>
 						<div class="ui center aligned container">
-							<a href="https://www.facebook.com/duchessfr"  class="item">
-								<i class="facebook big red  icon"></i>
-							</a>
-							<a href="https://twitter.com/duchessfr" class="item">
-								<i  class="twitter big red icon"></i>
-							</a>
-							<a href="https://www.youtube.com/channel/UCohHHhj_fdfYlYT9l6DMNXg" class="item">
-								<i  class="youtube play big red  icon"></i>
-							</a>
-							<a href="https://plus.google.com/u/0/collections/" class="item">
-								<i  class="google plus circle big red  icon"></i>
-							</a>
-							<a href="https://www.linkedin.com/start/join?trk=login_reg_redirect&session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fgroups%2F2750811" class="item">
-								<i  class="linkedin square big red  icon"></i>
-							</a>
-							<a href="https://groups.google.com/forum/?hl=fr#!forum/duchessfr" class="item">
-								<i  class="google big red  icon"></i>
-							</a>
 
 
+							<div  class="logofooter">
+								<a href="https://www.facebook.com/duchessfr"  class="item">
+									<i class="facebook big  icon"></i>
+								</a>
+							</div>
+
+							<div  class="logofooter">
+								<a href="https://twitter.com/duchessfr" class="item">
+									<i  class="twitter big  icon"></i>
+								</a>
+							</div>
+
+							<div  class="logofooter">
+								<a href="https://www.youtube.com/channel/UCohHHhj_fdfYlYT9l6DMNXg" class="item">
+									<i  class="youtube play big   icon"></i>
+								</a>
+							</div>
+
+							<div  class="logofooter">
+								<a href="https://plus.google.com/u/0/collections/" class="item">
+									<i  class="google plus circle big  icon"></i>
+								</a>
+							</div>
+
+							<div  class="logofooter">
+								<a href="https://www.linkedin.com/start/join?trk=login_reg_redirect&session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fgroups%2F2750811" class="item">
+									<i  class="linkedin square big  icon"></i>
+								</a>
+							</div>
+
+							<div  class="logofooter">
+								<a href="https://groups.google.com/forum/?hl=fr#!forum/duchessfr" class="item">
+									<i  class="google big icon"></i>
+								</a>
+							</div>
 						</div>
-					</div>
-					<div class="ui center aligned container">
-						<div class="ui inverted section divider"></div>
-						
+
+
 					</div>
 				</div>
-			</div>
+				<div class="ui center aligned container">
+					<div class="ui inverted section divider"></div>
 
+				</div>
+			</div>
+		</div>
 
 			<!-- Template mustache -->
 			<script id="templatePopUpProfile" type="text/template">
@@ -258,7 +316,10 @@
 			<script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.0/dist/leaflet.markercluster.js"></script>
 			<script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.0/dist/leaflet.markercluster-src.js"></script>
 			<script src="https://cdn.jsdelivr.net/mustache.js/2.3.0/mustache.min.js"></script>
+			<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+			<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 			<script type="text/javascript" src="js/map.js"></script>
 
 		</body>
 		</html>
+

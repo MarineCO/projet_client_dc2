@@ -4,7 +4,7 @@
 
 	var app = {
 
-		map: new L.Map('map',{scrollWheelZoom:false}),
+		map: new L.Map('map',{scrollWheelZoom:false} ),
 
 		marker: null,
 
@@ -16,6 +16,7 @@
 			this.initmap();
 			this.getDataCityMarrainage();
 			this.textHoverCommentFaire();
+			this.smoothScrolls();
 		},
 
 		textHoverCommentFaire: function() {
@@ -74,6 +75,40 @@
 
 		ajaxFail: function() {
 			console.log('erreur');
+		},
+
+		smoothScrolls: function(){
+
+			$('.smoothconcept').on('click', function() {
+				var page = $(this).attr('href');
+				var speed = 750;$
+				('html, body').animate( { scrollTop: $(page).offset().top }, speed ); 
+				return false;
+			});
+
+
+			$('.smoothJoinUs').on('click', function() {
+				var page = $(this).attr('href');
+				var speed = 750;$
+				('html, body').animate( { scrollTop: $(page).offset().top }, speed ); 
+				return false;
+			});
+
+
+			$('.smoothCarte').on('click', function() {
+				var page = $(this).attr('href');
+				var speed = 750;$
+				('html, body').animate( { scrollTop: $(page).offset().top }, speed ); 
+				return false;
+			});
+
+			$('.smoothHeader').on('click', function() {
+				var page = $(this).attr('href');
+				var speed = 750;$
+				('html, body').animate( { scrollTop: $(page).offset().top }, speed ); 
+				return false;
+			});
+
 		},
 
 		getDataCoord: function(cityName, status, idProfile) {
