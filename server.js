@@ -29,4 +29,4 @@ function redirect(){
 	$('a #home').click()
 		res.send('/');
 	
-}
+} 

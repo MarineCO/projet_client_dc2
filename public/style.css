@@ -6,10 +6,6 @@ html, body {
   margin-bottom: 0;
   font-family: "Open sans", Sans-serif; }
 
-  .logo {
-  height: 5em;
-  width: 3em; }
-
 .subtitleContainer {
   color: grey;
   margin-top: 0;
@@ -19,7 +15,21 @@ html, body {
   background-color: #BC2224;
   color: #f4f5f9;
   padding: 2em 5em;
+  width: 100%;
   font-family: "Open sans", Sans-serif; }
+
+.acolor {
+  color: #f4f5f9; }
+
+.ui.top.fixed.menu {
+  background-color: #BC2224;
+  height: 4em; }
+
+#acolor {
+  color: #f4f5f9; }
+
+.bordtitlemenu {
+  margin-top: 20px; }
 
 .menu .leftMenu {
   display: inline-block; }
@@ -51,8 +61,8 @@ html, body {
   margin-left: 2em; }
 
 .concept {
-  padding: 5em 5em;
-  font-family: "Open sans", Sans-serif; }
+  font-family: "Open sans", Sans-serif;
+  height: 30em; }
 
 .textConcept {
   padding: 0 1em;
@@ -60,7 +70,7 @@ html, body {
 
 .comment {
   padding: 5em 5em;
-  background-color: #222222;
+  background-color: #1b1c1d;
   font-family: "Open sans", Sans-serif;
   color: white; }
 
@@ -90,18 +100,28 @@ html, body {
   margin-right: 4em; }
 
 .mapContainer {
-  padding: 5em 5em;
+  padding: 4em 4em;
   font-family: "Open sans", Sans-serif;
-  height: 100%;
+  height: 35em;
   margin: 0;
   padding: 0;
-  margin: 2em; }
+  margin: 1em;
+  padding-top: 4em; }
 
 .titleContainer, .subtitleContainer {
   text-align: center; }
 
+#titremap {
+  margin-top: 1px; }
+
 .map {
-  height: 100%; }
+  height: 90%;
+  z-index: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+
+.map:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
 
 span {
   color: grey;
@@ -117,19 +137,33 @@ li {
 
 .containerForm {
   width: 60%;
-  margin: 5em auto; }
+  margin-top: 1.5em;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 1em; }
 
-  .ui.inverted.vertical.footer.segment {
- padding-top: 3em; }
+.hide {
+  width: 100%;
+  height: 10%;
+  background-color: #BC2224;
+  color: #fff; }
+  .hide .error, .hide .success {
+    text-align: center; }
+    .hide .error p, .hide .success p {
+      margin: 0;
+      padding: 1.5em; }
 
-  .footer {
-  margin-top: 10em; }
+.ui.inverted.vertical.footer.segment {
+  margin-top: 6em;
+  padding-top: 3em; }
 
-  .success{
-    width: 100%;
-  height : 55px;
-  background-color: #ff7473;
-  color : #fff;
-  }
+.logofooter {
+  margin: 0.8em 0;
+  display: inline-block; }
+  .logofooter a {
+    text-decoration: none;
+    color: white; }
+    .logofooter a:hover {
+      color: #BC2224; }
 
 /*# sourceMappingURL=style.css.map */

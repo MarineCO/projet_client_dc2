@@ -28,4 +28,4 @@ module.exports = function(dataMail) {
 			console.log(body);
 		});
 	});
-};
+}; 
