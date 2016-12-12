@@ -16,7 +16,6 @@
 
 		listeners: function() {
 			$('#btnSendMail').on('click', this.getMailData);
-
 		},
 
 		getMailData: function() {
