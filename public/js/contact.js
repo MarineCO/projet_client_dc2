@@ -16,7 +16,6 @@
 
 		listeners: function() {
 			$('#btnSendMail').on('click', this.getMailData);
-
 		},
 
 		getMailData: function() {
@@ -43,8 +42,8 @@
 					method: 'POST',
 					data: {nameExp: nameExp, mailExp: mailExp, id: idProfile, mailObj: mailObj, contentMail: contentMail}
 				})
-				.done(appContact.mailSent())
-				.fail(appContact.mailNoSent());
+				.done(appContact.mailSent)
+				.fail(appContact.mailNoSent);
 			}
 		},
 
@@ -59,8 +58,16 @@
 		},
 
 		mailSent: function() {
+			console.log('ok');
 			$('#hide').show();
-			$('.success').html('<p>' + 'Votre message est bien parti !' + '</p>' + '<a href="/" id="home" class="ui red inverted button joinBtn">' + 'Retour' + '</a>');
+			$('.success').html('<p>' + 'Votre message est bien parti !' + '</p>');
+			window.location.href = '/index.html';
+		},
+
+		mailNoSent: function() {
+			console.log('pas ok');
+			$('#hide').show();
+			$('.error').html('<p>' + 'L\'envoi du message a échoué !' + '</p>');
 		},
 
 		toHide : function(){

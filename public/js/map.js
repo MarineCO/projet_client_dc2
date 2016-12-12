@@ -6,15 +6,10 @@
 
 		map: new L.Map('map',{scrollWheelZoom:false} ),
 
-		marker: null,
-
-		dataMarrainage: [],
-
-		markers: L.markerClusterGroup(),
+		dataMarrainage: null,
 
 		init: function() {
 			this.initmap();
-			this.getDataCityMarrainage();
 			this.textHoverCommentFaire();
 			this.smoothScrolls();
 		},
@@ -38,43 +33,6 @@
 			$('.marraine3').hover(function() {
 				$('.divMarraine').html("<h4>3. Je contacte une filleule</h4><p>Consequatur, maxime doloremque quos nihil, possimus et accusamus autem blanditiis laboriosam!</p>");
 			});
-		},
-
-		initmap: function() {
-			var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-			var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-			var osm = new L.TileLayer(osmUrl, {minZoom: 1, maxZoom: 18, attribution: osmAttrib});
-
-			app.map.setView(new L.LatLng(46, 2),6);
-			app.map.addLayer(osm);
-			
-			app.map.on('focus', function() { 
-				app.map.scrollWheelZoom.enable();
-			});
-			app.map.on('blur', function() {
-				app.map.scrollWheelZoom.disable();
-			});
-		},
-
-		getDataCityMarrainage: function() {
-			$.ajax('/data')
-			.done(this.ajaxDone)
-			.fail(this.ajaxFail);
-		},
-		
-		ajaxDone: function(response) {
-			app.dataMarrainage = response.marrainage;
-
-			for (var i= 0; i < app.dataMarrainage.length; i++) {
-				var status = app.dataMarrainage[i].status;
-				var cityName = app.dataMarrainage[i].ville;
-				var idProfile = app.dataMarrainage[i].id;
-				app.getDataCoord(cityName, status, idProfile);
-			} 
-		},
-
-		ajaxFail: function() {
-			console.log('erreur');
 		},
 
 		smoothScrolls: function(){
@@ -111,66 +69,71 @@
 
 		},
 
-		getDataCoord: function(cityName, status, idProfile) {
-			var urlCoord = "http://nominatim.openstreetmap.org/search.php?q=" + cityName + "&format=json";
-			var data = $.ajax(urlCoord)
-			.done(function(data){
-				app.createMarker(data, status, idProfile);
-			})
-			.fail(app.creatMarkerFail);
-		},
+		initmap: function() {
+			var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+			var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+			var osm = new L.TileLayer(osmUrl, {minZoom: 1, maxZoom: 18, attribution: osmAttrib});
 
-		createMarker: function(data, status, idProfile) {
-			var lat = data[0].lat;
-			var lon = data[0].lon;
-
-			var mapIcon = L.icon ({
-				iconUrl: 'img/' + status +'.png',
-				iconSize: [40, 55],
-				className: idProfile
+			app.map.setView(new L.LatLng(46, 2),6);
+			app.map.addLayer(osm);
+			
+			app.map.on('focus', function() { 
+				app.map.scrollWheelZoom.enable();
+			});
+			app.map.on('blur', function() {
+				app.map.scrollWheelZoom.disable();
 			});
 
-			app.addMarker(lat, lon, mapIcon);
-
-		}, 
-
-		creatMarkerFail: function() {
-			console.log('erreur ajout marker Marraine');
+			this.addMarkers();
 		},
 
-		addMarker: function(lat, lon, statusIcon) {
-			app.marker = L.marker([lat, lon], {icon: statusIcon})
-			.addTo(app.map)
-			app.markers.addLayer(app.marker);
-			app.map.addLayer(app.markers);
+		addMarkers: function() {
 
-			app.listenersMarkers();
-		},
+			$.getJSON("/data",function(data){
 
-		listenersMarkers: function() {
-			app.marker.on('click', function(e){
-				var idOnClick = e.target.options.icon.options.className;
-				var len = app.dataMarrainage.length;
-				for (var i = 0; i < len; i++) {
-					if (app.dataMarrainage[i].id === idOnClick) {
-						var popUpTemplate = $('#templatePopUpProfile').html();
-						var htmlProfile = Mustache.to_html(popUpTemplate, app.dataMarrainage[i]);
-						app.marker.bindPopup(htmlProfile);
-						var latlng = e.latlng;
-						app.marker.openPopup(latlng);
+				var filleuleIcon = L.icon({
+					iconUrl: 'img/filleule.png',
+					iconSize: [40,55]
+				});
 
-						//sessionStorage
-						var dataStorage = {
-							id: idOnClick,
-							prenom: app.dataMarrainage[i].prenom,
-							nom: app.dataMarrainage[i].nom
+				var marraineIcon = L.icon({
+					iconUrl: 'img/marraine.png',
+					iconSize: [40,55]
+				});
+
+				var duchesses = L.geoJson(data,{
+					pointToLayer: function(feature,latlng){
+						app.dataMarrainage = data.features;
+						if (feature.properties.status === "filleule") {
+							var marker = L.marker(latlng,{icon: filleuleIcon});
+						} else {
+							var marker = L.marker(latlng,{icon: marraineIcon});
 						}
-						var dataStorage_json = JSON.stringify(dataStorage);
-						sessionStorage.setItem("dataStorage", dataStorage_json);
+						
+						//Mustache
+						var popUpTemplate = $('#templatePopUpProfile').html();
+						var htmlProfile = Mustache.to_html(popUpTemplate, feature.properties);
+						marker.bindPopup(htmlProfile);
+
+						$(marker).on('click', function(e) {
+							var dataStorage = {
+								id: e.currentTarget.feature.properties.id,
+								prenom: e.currentTarget.feature.properties.prenom,
+								nom: e.currentTarget.feature.properties.nom
+							}
+							var dataStorage_json = JSON.stringify(dataStorage);
+							sessionStorage.setItem("dataStorage", dataStorage_json);
+						});
+						return marker;
 					}
-				}
+				});
+
+				var clusters = L.markerClusterGroup();
+				clusters.addLayer(duchesses);
+				app.map.addLayer(clusters);
 			});
 		}
+
 	}
 
 	$(document).ready(function() {
