@@ -43,8 +43,8 @@
 					method: 'POST',
 					data: {nameExp: nameExp, mailExp: mailExp, id: idProfile, mailObj: mailObj, contentMail: contentMail}
 				})
-				.done(appContact.mailSent())
-				.fail(appContact.mailNoSent());
+				.done(appContact.mailSent)
+				.fail(appContact.mailNoSent);
 			}
 		},
 
@@ -60,7 +60,7 @@
 
 		mailSent: function() {
 			$('#hide').show();
-			$('.success').html('<p>' + 'Votre message est bien parti !' + '</p>' + '<a href="/" id="home" class="ui red inverted button joinBtn">' + 'Retour' + '</a>');
+			$('.success').html('<p>' + 'Votre message est bien parti !' + '</p>');
 		},
 
 		mailNoSent: function() {
