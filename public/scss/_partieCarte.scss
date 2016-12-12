@@ -1,11 +1,12 @@
-.mapContainer {
-	 padding: 4em 4em;
+	.mapContainer {
+	
 	font-family: "Open sans", Sans-serif;
-	height: 35em;
+	height: 38em;
 	margin: 0;
 	padding: 0;
 	margin: 1em;
-	padding-top: 4em;
+	padding-bottom: 6em;
+
 }
 .titleContainer, .subtitleContainer {
 	text-align: center;
@@ -13,7 +14,8 @@
 }
 
 #titremap {
-	margin-top: 1px;
+	padding-top: 1em;
+	
 }
 .map{
 	height: 90%;
