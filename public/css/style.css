@@ -1,4 +1,4 @@
-html, body {
+shtml, body {
   font-size: 20px;
   font-family: "Open sans", Sans-serif; }
 
@@ -15,14 +15,11 @@ html, body {
   background-color: #BC2224;
   color: #f4f5f9;
   padding: 2em 5em;
-  width: 100%;
-  height: 41em;
-  margin-right: 0 auto;
-  margin-left: 0 auto;
   font-family: "Open sans", Sans-serif; }
 
 .acolor {
   color: #f4f5f9; }
+  
 
 .ui.top.fixed.menu {
   background-color: #BC2224;
@@ -64,18 +61,13 @@ html, body {
   margin-left: 2em; }
 
 .concept {
-  padding-top: 4em;
+  padding: 5em 5em;
   font-family: "Open sans", Sans-serif;
-  height: 32em;
-  padding-bottom: 45em; }
+  height: 42em; }
 
 .textConcept {
-  padding: 1em 1em;
-  padding-right: 2em;
+  padding: 0 1em;
   text-align: justify; }
-
-#paddingright {
-  padding-right: 1 1; }
 
 .comment {
   padding: 5em 5em;
@@ -109,18 +101,19 @@ html, body {
   margin-right: 4em; }
 
 .mapContainer {
+  padding: 4em 4em;
   font-family: "Open sans", Sans-serif;
-  height: 38em;
+  height: 35em;
   margin: 0;
   padding: 0;
   margin: 1em;
-  padding-bottom: 6em; }
+  padding-top: 4em; }
 
 .titleContainer, .subtitleContainer {
   text-align: center; }
 
 #titremap {
-  padding-top: 1em; }
+  margin-top: 1px; }
 
 .map {
   height: 90%;
@@ -145,23 +138,10 @@ li {
 
 .containerForm {
   width: 60%;
-  margin-top: 1.5em;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 1em; }
-
-.hide {
-  width: 100%;
-  height: 10%;
-  background-color: #BC2224;
-  color: #fff; }
-  .hide .error, .hide .success {
-    text-align: center; }
-    .hide .error p, .hide .success p {
-      margin: 0;
-      padding: 1.5em; }
+  margin: 5em auto; }
 
 .ui.inverted.vertical.footer.segment {
+  margin-top: 6em;
   padding-top: 3em; }
 
 .logofooter {
