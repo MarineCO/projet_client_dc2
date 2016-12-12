@@ -13,7 +13,7 @@ module.exports = function(dataMail) {
 		var dataMarrainage = JSON.parse(data);
 		var len = dataMarrainage.marrainage.length;
 		console.log(dataMail.body.id);
-		for (var i = 0; i < len ;i++) {
+		for (var i = 0; i < len; i++) {
 			if (dataMarrainage.marrainage[i].id === dataMail.body.id) {
 				var data = {
 					from: dataMail.body.nameExp + ' <' + dataMail.body.mailExp + '>',
@@ -25,6 +25,7 @@ module.exports = function(dataMail) {
 			};
 		}
 		mailgun.messages().send(data, function (error, body) {
+			console.log(error);
 			console.log(body);
 		});
 	});

@@ -63,6 +63,10 @@
 			$('.success').html('<p>' + 'Votre message est bien parti !' + '</p>' + '<a href="/" id="home" class="ui red inverted button joinBtn">' + 'Retour' + '</a>');
 		},
 
+		mailNoSent: function() {
+			console.log('mail non envoyé');
+		},
+
 		toHide : function(){
 			$('#hide').hide();
 		},
