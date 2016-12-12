@@ -3,6 +3,8 @@ dataMarrainage.json
 node_modules
 getJsonDC1-dev.js
 public/node_modules
+public/.sass-cache
+
 
 public/test.html
 public/test.css
