@@ -4,7 +4,7 @@
 
 		dataProfile: null,
 
-		init: function() {
+		init : function() {
 			var dataStorage_json = sessionStorage.getItem("dataStorage");
 			var dataStorage = JSON.parse(dataStorage_json);
 			appContact.dataProfile = dataStorage;
@@ -15,13 +15,13 @@
 			
 		},
 
-		listeners: function() {
+		listeners : function() {
 			$('#btnSendMail').on('click', this.getMailData);
 			$('.success #home').on('click', appContact.comeBackHome());
 
 		},
 
-		getMailData: function() {
+		getMailData : function() {
 			var idProfile = appContact.dataProfile.id;
 			console.log(idProfile);
 			var nameExp = $('#nameExp').val();
@@ -37,7 +37,7 @@
 			.fail(appContact.mailNoSent());
 		},
 
-		mailSent: function() {
+		mailSent : function() {
 			console.log('succes');
 			$('.success').html('Votre message est bien parti !' + '<a href="/" id="home" class="ui inverted button joinBtn"> Retour </a>');
 			$('#hide').show();
@@ -45,11 +45,7 @@
 		},
 		toHide : function(){
 			$('#hide').hide();
-		},
-		comeBackHome : function(){
-
-		}
-
+		},	
 	};
 
 	appContact.init();
