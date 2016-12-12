@@ -15,6 +15,7 @@ html, body {
   background-color: #BC2224;
   color: #f4f5f9;
   padding: 2em 5em;
+  width: 100%;
   font-family: "Open sans", Sans-serif; }
 
 .acolor {
@@ -60,9 +61,8 @@ html, body {
   margin-left: 2em; }
 
 .concept {
-  padding: 5em 5em;
   font-family: "Open sans", Sans-serif;
-  height: 42em; }
+  height: 30em; }
 
 .textConcept {
   padding: 0 1em;
