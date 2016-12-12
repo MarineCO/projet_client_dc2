@@ -61,8 +61,12 @@ html, body {
   margin-left: 2em; }
 
 .concept {
+  padding-top: 5em;
   font-family: "Open sans", Sans-serif;
   height: 30em; }
+
+.subtitleContainer {
+  padding-bottom: 2em; }
 
 .textConcept {
   padding: 0 1em;
@@ -145,13 +149,13 @@ li {
 .hide {
   width: 100%;
   height: 10%;
-  background-color: #BC2224;
+  background-color: blue;
   color: #fff; }
   .hide .error, .hide .success {
     text-align: center; }
     .hide .error p, .hide .success p {
       margin: 0;
-      padding: 1.5em; }
+      padding: 1em; }
 
 .ui.inverted.vertical.footer.segment {
   margin-top: 6em;

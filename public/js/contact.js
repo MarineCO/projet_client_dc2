@@ -59,12 +59,16 @@
 		},
 
 		mailSent: function() {
+			console.log('ok');
 			$('#hide').show();
 			$('.success').html('<p>' + 'Votre message est bien parti !' + '</p>');
+			window.location.href = '/index.html';
 		},
 
 		mailNoSent: function() {
-			console.log('mail non envoyé');
+			console.log('pas ok');
+			$('#hide').show();
+			$('.error').html('<p>' + 'L\'envoi du message a échoué !' + '</p>');
 		},
 
 		toHide : function(){

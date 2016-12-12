@@ -1,10 +1,11 @@
 var fs = require('fs');
 var config = require('./config.js');
 
-module.exports = function(dataMail) {
+module.exports = function(req, res) {
 	var api_key = config.api_key;
 	var domain = config.domain;
 	var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+	var content = req.body
 
 	fs.readFile(__dirname + '/dataMarrainage.json', 'utf8', function(err, data){
 		if (err) {
@@ -12,14 +13,15 @@ module.exports = function(dataMail) {
 		}
 		var dataMarrainage = JSON.parse(data);
 		var len = dataMarrainage.marrainage.length;
-		console.log(dataMail.body.id);
+		console.log(content.id);
+
 		for (var i = 0; i < len; i++) {
-			if (dataMarrainage.marrainage[i].id === dataMail.body.id) {
+			if (dataMarrainage.marrainage[i].id === content.id) {
 				var data = {
-					from: dataMail.body.nameExp + ' <' + dataMail.body.mailExp + '>',
+					from: content.nameExp + ' <' + content.mailExp + '>',
 					to: dataMarrainage.marrainage[i].email,
-					subject: dataMail.body.mailObj,
-					text: dataMail.body.contentMail
+					subject: content.mailObj,
+					text: content.contentMail
 				};
 				console.log(dataMarrainage.marrainage[i].email);
 			};
@@ -27,6 +29,7 @@ module.exports = function(dataMail) {
 		mailgun.messages().send(data, function (error, body) {
 			console.log(error);
 			console.log(body);
+			res.send('contact.js');
 		});
 	});
 };
