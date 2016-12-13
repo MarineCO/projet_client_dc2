@@ -16,6 +16,9 @@ html, body {
   color: #f4f5f9;
   padding: 2em 5em;
   width: 100%;
+  height: 41em;
+  margin-right: 0 auto;
+  margin-left: 0 auto;
   font-family: "Open sans", Sans-serif; }
 
 .acolor {
@@ -61,12 +64,22 @@ html, body {
   margin-left: 2em; }
 
 .concept {
+  padding-top: 4em;
+  padding-right: 4em;
+  padding-left: 4em;
   font-family: "Open sans", Sans-serif;
-  height: 30em; }
+  padding-bottom: 3em; }
+
+.concept .subtitleContainer {
+  padding-bottom: 2em; }
 
 .textConcept {
-  padding: 0 1em;
+  padding: 1em 1em;
+  padding-right: 2em;
   text-align: justify; }
+
+#paddingright {
+  padding-right: 1 1; }
 
 .comment {
   padding: 5em 5em;
@@ -100,19 +113,17 @@ html, body {
   margin-right: 4em; }
 
 .mapContainer {
-  padding: 4em 4em;
+  padding-top: 2em;
+  padding-bottom: 1em;
   font-family: "Open sans", Sans-serif;
-  height: 35em;
-  margin: 0;
-  padding: 0;
-  margin: 1em;
-  padding-top: 4em; }
+  height: 53em;
+  margin: 1em; }
 
 .titleContainer, .subtitleContainer {
   text-align: center; }
 
 #titremap {
-  margin-top: 1px; }
+  padding-top: 1em; }
 
 .map {
   height: 90%;
@@ -122,6 +133,46 @@ html, body {
 
 .map:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+
+#map {
+  height: 800px;
+  margin-bottom: 2em; }
+
+.marker-cluster {
+  background-clip: padding-box;
+  border-radius: 20px; }
+
+.marker-cluster div {
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  margin-top: 5px;
+  text-align: center;
+  border-radius: 15px;
+  font-weight: bold;
+  font: 18px "Helvetica Neue", Arial, Helvetica, sans-serif; }
+
+.marker-cluster span {
+  line-height: 30px;
+  color: white; }
+
+.marker-cluster-small {
+  background-color: rgba(188, 34, 36, 0.6); }
+
+.marker-cluster-small div {
+  background-color: rgba(188, 34, 36, 0.8); }
+
+.marker-cluster-medium {
+  background-color: rgba(90, 90, 90, 0.8); }
+
+.marker-cluster-medium div {
+  background-color: #5a5a5a; }
+
+.marker-cluster-large {
+  background-color: rgba(90, 90, 90, 0.8); }
+
+.marker-cluster-large div {
+  background-color: #5a5a5a; }
 
 span {
   color: grey;
@@ -145,16 +196,20 @@ li {
 .hide {
   width: 100%;
   height: 10%;
-  background-color: #BC2224;
   color: #fff; }
   .hide .error, .hide .success {
     text-align: center; }
     .hide .error p, .hide .success p {
       margin: 0;
-      padding: 1.5em; }
+      padding: 1em; }
+
+.hide .success {
+  background-color: #3ac569; }
+
+.hide .error {
+  background-color: blue; }
 
 .ui.inverted.vertical.footer.segment {
-  margin-top: 6em;
   padding-top: 3em; }
 
 .logofooter {

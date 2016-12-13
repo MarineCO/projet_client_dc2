@@ -2,7 +2,7 @@ var fs = require('fs');
 
 
 module.exports = function(req, res) {
-	fs.readFile(__dirname + '/dataMarrainage.json', 'utf8', function(err, data){
+	fs.readFile(__dirname + '/dataGeojson.geojson', 'utf8', function(err, data){
 		if (err) {
 			throw err;
 		}

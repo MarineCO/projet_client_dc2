@@ -12,7 +12,6 @@ app.use(express.static(__dirname + '/public'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 app.get('/', function(req, res){
 	res.send('index.html');
 });
@@ -23,5 +22,9 @@ app.post('/sendMail', sendMail);
 
 app.listen(2929, function(){
 	console.log('Ca marche sur ce port')
+
 });
+
+
+
 
