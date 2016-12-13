@@ -13,7 +13,7 @@
 			this.listeners();
 			appContact.toHide();
 		},
- 
+
 		listeners : function() {
 			$('#btnSendMail').on('click', this.getMailData);
 
@@ -46,6 +46,7 @@
 				.done(appContact.mailSent())
 				.fail(appContact.mailNoSent());
 			}
+			
 		},
 
 		validateEmail: function(mailExp) {
@@ -58,13 +59,9 @@
 			}
 		},
 
-
 		mailSent : function() {
 			console.log('succes');
 			$('.success').html('Votre message est bien parti !' + '<a href="/" id="home" class="ui inverted button joinBtn"> Retour </a>');
-
-		mailSent: function() {
-
 			$('#hide').show();
 			$('.success').html('<p>' + 'Votre message est bien parti !' + '</p>' + '<a href="/" id="home" class="ui red inverted button joinBtn">' + 'Retour' + '</a>');
 		},
@@ -72,14 +69,11 @@
 		toHide : function(){
 			$('#hide').hide();
 
-		},	
-
 		},
 
 		reset: function() {
 			$('#error').html('');
 		}
-
 	};
 
 	appContact.init();
