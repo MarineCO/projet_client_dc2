@@ -60,8 +60,10 @@
 		mailSent: function() {
 			console.log('ok');
 			$('#hide').show();
-			$('.success').html('<p>' + 'Votre message est bien parti !' + '</p>');
+			$('.success').html('<p>' + 'Votre message est bien parti ! Vous allez en recevoir une copie.' + '</p>');
+			window.setTimeout(function() {
 			window.location.href = '/index.html';
+			}, 4000);
 		},
 
 		mailNoSent: function() {

@@ -132,6 +132,11 @@
 				clusters.addLayer(duchesses);
 				app.map.addLayer(clusters);
 			});
+		},
+		//A LIER AVEC CONTACT.JS
+		mailSent: function() {
+			$('.essai').html('<div class="message">' + '<p>' + 'Votre message est bien parti !' + '</p>' + '</div>');
+			$('.message').css(backgroundColor, 'blue');
 		}
 
 	}
