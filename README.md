@@ -50,7 +50,7 @@ Un fichier dataGeojson.geojson sera à placer à la racine du dossier.
 
 
 
-## III - Le site
+## III - Le site 
 
 Via le site de Duchess-France, on accède au site d'AdoptADuchess. 
 
