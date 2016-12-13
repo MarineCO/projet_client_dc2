@@ -1,7 +1,10 @@
 .concept {
-	padding-top: 5em;
+	padding-top: 4em;
+	padding-right: 4em;
+	padding-left: 4em;
 	font-family: "Open sans", Sans-serif;
-	height: 30em;
+	height: 41em;
+	padding-bottom: 42em;
 }
 
 .concept .subtitleContainer {
@@ -9,6 +12,11 @@
 }
 
 .textConcept {
-	padding: 0 1em;
+	padding: 1em 1em;
+	padding-right: 2em;
 	text-align: justify;
+}
+
+#paddingright {
+	padding-right: 1 1;
 }

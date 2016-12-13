@@ -39,31 +39,31 @@
 
 			$('.smoothconcept').on('click', function() {
 				var page = $(this).attr('href');
-				var speed = 750;$
-				('html, body').animate( { scrollTop: $(page).offset().top }, speed ); 
+				var speed = 750;
+				$('html, body').animate( { scrollTop: $(page).offset().top - 40}, speed ); 
 				return false;
 			});
 
 
 			$('.smoothJoinUs').on('click', function() {
 				var page = $(this).attr('href');
-				var speed = 750;$
-				('html, body').animate( { scrollTop: $(page).offset().top }, speed ); 
+				var speed = 750;
+				$('html, body').animate( { scrollTop: $(page).offset().top }, speed ); 
 				return false;
 			});
 
 
 			$('.smoothCarte').on('click', function() {
 				var page = $(this).attr('href');
-				var speed = 750;$
-				('html, body').animate( { scrollTop: $(page).offset().top }, speed ); 
+				var speed = 750;
+				$('html, body').animate( { scrollTop: $(page).offset().top - 60}, speed ); 
 				return false;
 			});
 
 			$('.smoothHeader').on('click', function() {
 				var page = $(this).attr('href');
-				var speed = 750;$
-				('html, body').animate( { scrollTop: $(page).offset().top }, speed ); 
+				var speed = 750;
+				$('html, body').animate( { scrollTop: $(page).offset().top }, speed ); 
 				return false;
 			});
 
