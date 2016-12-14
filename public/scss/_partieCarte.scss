@@ -1,13 +1,10 @@
 
 .mapContainer {
-	padding: 4em 4em;
+	padding-top: 2em;
+	padding-bottom: 1em;
 	font-family: "Open sans", Sans-serif;
-	height: 38em;
-	margin: 0;
-	padding: 0;
+	height: 53em;
 	margin: 1em;
-	padding-bottom: 6em;
-
 }
 
 .titleContainer, .subtitleContainer {
@@ -16,7 +13,6 @@
 
 #titremap {
 	padding-top: 1em;
-	
 }
 
 .map{
@@ -32,7 +28,9 @@
 
 
 #map {
-	height: 48em;
+
+	height: 800px;
+	margin-bottom: 2em;
 }
 
 .marker-cluster {

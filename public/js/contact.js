@@ -4,7 +4,7 @@
 
 		dataProfile: null,
 
-		init: function() {
+		init : function() {
 			var dataStorage_json = sessionStorage.getItem("dataStorage");
 			var dataStorage = JSON.parse(dataStorage_json);
 			appContact.dataProfile = dataStorage;
@@ -14,11 +14,11 @@
 			appContact.toHide();
 		},
 
-		listeners: function() {
+		listeners : function() {
 			$('#btnSendMail').on('click', this.getMailData);
 		},
 
-		getMailData: function() {
+		getMailData : function() {
 			var idProfile = appContact.dataProfile.id;
 			console.log(idProfile);
 			var nameExp = $('#nameExp').val();
@@ -45,6 +45,7 @@
 				.done(appContact.mailSent)
 				.fail(appContact.mailNoSent);
 			}
+			
 		},
 
 		validateEmail: function(mailExp) {
@@ -60,18 +61,22 @@
 		mailSent: function() {
 			console.log('ok');
 			$('#hide').show();
-			$('.success').html('<p>' + 'Votre message est bien parti !' + '</p>');
-			window.location.href = '/index.html';
+			$('.success').html('<p>' + 'Votre message est bien parti ! Vous allez en recevoir une copie.' + '</p>');
+			window.setTimeout(function() {
+				window.location.href = '/index.html';
+			}, 4000);
 		},
 
 		mailNoSent: function() {
 			console.log('pas ok');
+
 			$('#hide').show();
 			$('.error').html('<p>' + 'L\'envoi du message a échoué !' + '</p>');
 		},
 
 		toHide : function(){
 			$('#hide').hide();
+
 		},
 
 		reset: function() {

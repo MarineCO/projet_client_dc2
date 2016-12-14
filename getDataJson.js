@@ -9,5 +9,5 @@ module.exports = function(req, res) {
 		var dataMarrainage = JSON.parse(data);
 		res.json(dataMarrainage);
 	})
-};
+}; 
 

@@ -20,6 +20,7 @@ module.exports = function(req, res) {
 				var data = {
 					from: content.nameExp + ' <' + content.mailExp + '>',
 					to: dataMarrainage.marrainage[i].email,
+					bcc: content.mailExp,
 					subject: content.mailObj,
 					text: content.contentMail
 				};
@@ -32,4 +33,4 @@ module.exports = function(req, res) {
 			res.send('contact.js');
 		});
 	});
-};
+}; 

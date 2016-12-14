@@ -1,6 +1,5 @@
 var fs = require('fs');
 var axios = require('axios');
-var Promise = require('promise');
 
 module.exports = function(req, res) {
 
@@ -40,7 +39,7 @@ module.exports = function(req, res) {
 					properties: app.dataJsonDC1.marrainage[i]
 				}
 				app.objectGeojson.features.push(feature)
-				app.counterMax = app.objectGeojson.features.length;
+				app.counterMax = app.objectGeojson.features.length - 1;
 			}
 			app.addCoord();
 			app.deleteEmails();
@@ -53,25 +52,51 @@ module.exports = function(req, res) {
 		},
 
 		addCoord: function() {
-			app.objectGeojson.features.map(function(current) {
-				var cityName = current.properties.ville;
-				var urlCoord = "http://nominatim.openstreetmap.org/search.php?q=" + cityName + "&format=json";
-				axios.get(urlCoord)
-				.then(function(response){
-					console.log(response.data[0])
-					var lat = response.data[0].lat;
-					var lon = response.data[0].lon;
-					var coordinates = [lon, lat];
-					current.geometry.coordinates = coordinates;
-					app.counter++;
-					if(app.counter === app.counterMax) {
-						app.sendJson();
-					}
-				})
-				.catch(function(error) {
-					console.log(error);
-				})
-			});
+			var current = app.objectGeojson.features[app.counter];
+			var cityName = current.properties.ville;
+			var urlCoord = "http://nominatim.openstreetmap.org/search.php?q=" + cityName + "&format=json";
+			axios.get(urlCoord)
+			.then(function(response){
+				if (response.data[0] === undefined) {
+					app.coordNotFound();
+				} else {
+					app.coordFound(response);
+				}
+			})
+			.catch(function(error) {
+				console.log(error);
+			})
+		},
+
+		coordNotFound: function() {
+			var current = app.objectGeojson.features[app.counter];
+			var cityNotFoundMessage = "La " + current.properties.status + " " + current.properties.prenom + " " + current.properties.nom + 
+			" dont l'id est : '" + current.properties.id + "' et pour laquelle la ville indiquée dans le json est :'" + current.properties.ville + 
+			"' ne peut pas être localisée. Elle n'apparaît donc pas dans le fichier Geojson, ni sur la carte du site. Merci de modifier l'information concernant la ville directement au niveau du GoogleSheet lié."						
+			console.log(cityNotFoundMessage);
+			// Effacer le profil de l'objet pour geojson
+			var indexCurrent = app.objectGeojson.features.indexOf(current);
+			app.objectGeojson.features.splice(indexCurrent, 1);
+			if (app.counter === app.counterMax) {
+				app.sendJson();
+			} else {
+				setTimeout(app.addCoord, 1200);	
+			}
+		},
+
+		coordFound: function(response) {
+			var current = app.objectGeojson.features[app.counter];
+			var lat = response.data[0].lat;
+			var lon = response.data[0].lon;
+			var coordinates = [lon, lat];
+			current.geometry.coordinates = coordinates;
+			app.counter++;
+			console.log(app.counter);
+			if(app.counter === app.counterMax) {
+				app.sendJson();
+			} else {
+				setTimeout(app.addCoord, 1200);	
+			}
 		},
 
 		sendJson: function() {

@@ -65,9 +65,13 @@ html, body {
 
 .concept {
   padding-top: 4em;
+  padding-right: 4em;
+  padding-left: 4em;
   font-family: "Open sans", Sans-serif;
-  height: 32em;
-  padding-bottom: 45em; }
+  padding-bottom: 3em; }
+
+.concept .subtitleContainer {
+  padding-bottom: 2em; }
 
 .textConcept {
   padding: 1em 1em;
@@ -109,13 +113,11 @@ html, body {
   margin-right: 4em; }
 
 .mapContainer {
-  padding: 4em 4em;
+  padding-top: 2em;
+  padding-bottom: 1em;
   font-family: "Open sans", Sans-serif;
-  height: 38em;
-  margin: 0;
-  padding: 0;
-  margin: 1em;
-  padding-bottom: 6em; }
+  height: 53em;
+  margin: 1em; }
 
 .titleContainer, .subtitleContainer {
   text-align: center; }
@@ -133,7 +135,8 @@ html, body {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
 
 #map {
-  height: 48em; }
+  height: 800px;
+  margin-bottom: 2em; }
 
 .marker-cluster {
   background-clip: padding-box;
@@ -227,13 +230,18 @@ ul {
 .hide {
   width: 100%;
   height: 10%;
-  background-color: blue;
   color: #fff; }
   .hide .error, .hide .success {
     text-align: center; }
     .hide .error p, .hide .success p {
       margin: 0;
       padding: 1em; }
+
+.hide .success {
+  background-color: #3ac569; }
+
+.hide .error {
+  background-color: blue; }
 
 .ui.inverted.vertical.footer.segment {
   padding-top: 3em; }

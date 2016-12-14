@@ -7,4 +7,11 @@ public/node_modules
 public/.sass-cache
 style.css.map
 
-test/*
+
+public/test.html
+public/test.css
+public/test.js
+public/test.geojson
+dataGeojson.geojson
+test/
+
