@@ -16,6 +16,8 @@ module.exports = function(req, res) {
 
 		counterMax: null,
 
+		//geo: [],
+
 		init: function() {
 			app.readJsonDC1();
 		},
@@ -39,8 +41,9 @@ module.exports = function(req, res) {
 					properties: app.dataJsonDC1.marrainage[i]
 				}
 				app.objectGeojson.features.push(feature)
-				app.counterMax = app.objectGeojson.features.length - 1;
 			}
+			app.counterMax = app.objectGeojson.features.length - 1;
+			console.log("max = " + app.counterMax);
 			app.addCoord();
 			app.deleteEmails();
 		},
@@ -55,6 +58,11 @@ module.exports = function(req, res) {
 			var current = app.objectGeojson.features[app.counter];
 			var cityName = current.properties.ville;
 			var urlCoord = "http://nominatim.openstreetmap.org/search.php?q=" + cityName + "&format=json";
+			
+			/*var objCity = {ville: cityName};
+			app.geo.push(objCity);
+			console.log(app.geo);*/
+
 			axios.get(urlCoord)
 			.then(function(response){
 				if (response.data[0] === undefined) {
@@ -64,7 +72,8 @@ module.exports = function(req, res) {
 				}
 			})
 			.catch(function(error) {
-				console.log(error);
+				//console.log(error);
+				app.coordNotFound();
 			})
 		},
 
@@ -100,12 +109,13 @@ module.exports = function(req, res) {
 		},
 
 		sendJson: function() {
-			var stringGeojson = JSON.stringify(app.objectGeojson);
+			res.json(app.objectGeojson);
+			/*var stringGeojson = JSON.stringify(app.objectGeojson);
 			fs.writeFile('dataGeojson.geojson', stringGeojson, 'utf8', function(err) {
 				if (err) {
 					console.log(err);
 				}
-			})
+			})*/
 		}
 
 	}

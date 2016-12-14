@@ -4,7 +4,7 @@ var axios = require('axios');
 var fs = require('fs');
 
 var app = express();
-var getData = require('./getDataJson.js');
+var getData = require('./createGeojson-dev.js');
 var sendMail = require('./mailGun.js');
 
 app.use(express.static(__dirname + '/public'))
