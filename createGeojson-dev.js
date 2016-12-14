@@ -1,7 +1,6 @@
-var fs = require('fs');
-var axios = require('axios');
-
-module.exports = function(req, res) {
+(function() {
+	var fs = require('fs');
+	var axios = require('axios');
 
 	var app = {
 
@@ -18,9 +17,9 @@ module.exports = function(req, res) {
 
 		geo: [
 		{ville: "toulouse",
-		coord: [1, 1]},
-		{ville: "angers",
-		coord: [2, 2]}
+		coord: [1.4442469, 43.6044622]},
+		{ville: "paris",
+		coord: [2.3514992, 48.8566101]}
 		],
 
 		init: function() {
@@ -28,7 +27,7 @@ module.exports = function(req, res) {
 		},
 
 		readJsonDC1: function() {
-			fs.readFile(__dirname + '/dataMarrainage.json', 'utf8', function(err, data){
+			fs.readFile(__dirname + '/realData.json', 'utf8', function(err, data){
 				if (err) {
 					throw err;
 				}
@@ -52,7 +51,7 @@ module.exports = function(req, res) {
 		},
 
 		setInitialCounterMax: function() {
-			app.counterMax = app.objectGeojson.features.length;
+			app.counterMax = app.dataJsonDC1.marrainage.length;
 			console.log("max = " + app.counterMax);
 			app.checkCityInArray();
 		},
@@ -139,10 +138,10 @@ module.exports = function(req, res) {
 		},
 
 		nextFeatureOrStop: function() {
-			console.log(app.counter);
 			if (app.counter === app.counterMax) {
 				app.sendJson();
 			} else {
+				console.log(app.counter);
 				console.log("restart");
 				setTimeout(app.checkCityInArray, 1200);	
 			}
@@ -152,7 +151,7 @@ module.exports = function(req, res) {
 			//res.json(app.objectGeojson);
 			console.log("stop");
 			var stringGeojson = JSON.stringify(app.objectGeojson);
-			fs.writeFile('dataGeojson.geojson', stringGeojson, 'utf8', function(err) {
+			fs.writeFile('dataGeojsonReal.geoson', stringGeojson, 'utf8', function(err) {
 				if (err) {
 					console.log(err);
 				}
@@ -163,4 +162,5 @@ module.exports = function(req, res) {
 
 	app.init();
 
-};
+})();
+
