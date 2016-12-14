@@ -16,12 +16,12 @@ module.exports = function(req, res) {
 
 		counterMax: null,
 
-		/*geo: [
-			{ville: "toulouse",
-			coord: [1, 1]},
-			{ville: "angers",
-			coord: [2, 2]}
-		],*/
+		geo: [
+		{ville: "toulouse",
+		coord: [1, 1]},
+		{ville: "angers",
+		coord: [2, 2]}
+		],
 
 		init: function() {
 			app.readJsonDC1();
@@ -47,14 +47,14 @@ module.exports = function(req, res) {
 				}
 				app.objectGeojson.features.push(feature)
 			}
-			app.setCounterMax();
+			app.setInitialCounterMax();
 			app.deleteEmails();
 		},
 
-		setCounterMax: function() {
+		setInitialCounterMax: function() {
 			app.counterMax = app.objectGeojson.features.length;
 			console.log("max = " + app.counterMax);
-			app.checkCity();
+			app.checkCityInArray();
 		},
 
 		deleteEmails: function() {
@@ -63,21 +63,39 @@ module.exports = function(req, res) {
 			})
 		},
 
-		checkCity: function() {
+		checkCityInArray: function() {
 			var current = app.objectGeojson.features[app.counter];
 			var cityName = current.properties.ville;
-			if (false) {
-				//ajouter quand ville déjà connue
-				/*var objCity = {ville: cityName};
-				app.geo.push(objCity);
-				console.log(app.geo);*/
+			var cityLow = cityName.toString().toLowerCase();
+			var coordinates = false;
+			
+			var len = app.geo.length;
+			for (var i = 0; i < len; i++) {
+				if (cityLow === app.geo[i].ville) {
+					coordinates = app.geo[i].coord;
+				}
+			};
+			
+			app.resultCityInArray(coordinates);
+		},
+
+		resultCityInArray: function(coord) {
+			var current = app.objectGeojson.features[app.counter];
+			if (coord) {
+				console.log("les mêmes = " + coord);
+				current.geometry.coordinates = coord;
+				app.counter++;
+				app.nextFeatureOrStop();
 			} else {
-				app.lookForCoord(cityName);
+				console.log("pas les mêmes = " + coord);
+				app.lookForCoord()
 			}
 		},
 
-		lookForCoord: function(city) {
-			var urlCoord = "http://nominatim.openstreetmap.org/search.php?q=" + city + "&format=json";
+		lookForCoord: function() {
+			var current = app.objectGeojson.features[app.counter];
+			var cityName = current.properties.ville;
+			var urlCoord = "http://nominatim.openstreetmap.org/search.php?q=" + cityName + "&format=json";
 			axios.get(urlCoord)
 			.then(function(response){
 				if (response.data[0] !== undefined) {
@@ -126,7 +144,7 @@ module.exports = function(req, res) {
 				app.sendJson();
 			} else {
 				console.log("restart");
-				setTimeout(app.checkCity, 1200);	
+				setTimeout(app.checkCityInArray, 1200);	
 			}
 		},
 		
