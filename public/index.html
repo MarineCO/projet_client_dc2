@@ -12,7 +12,12 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
+ 
+
+
+
 <body class="essai">
+
 
 	<!-- Header-->
 	
@@ -44,8 +49,8 @@
 				<div class="ten wide column">
 					<h1>Découvrez le programme de marrainage Duchess France !</h1>
 					<h2>Vous êtes une femme et vous évoluez dans un milieu technique ? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae quis, nobis molestias incidunt.</h2>
-					<a class="ui inverted button" href="#partieconcept">Notre concept</a>
-					<a class="ui inverted button joinBtn" href="#partiecomment">Rejoindre l'aventure !</a>
+					<a class="ui inverted button smoothconcept" href="#partieconcept">Notre concept</a><a class="ui inverted button joinBtn smoothJoinUs" href="#partiecomment">Rejoindre l'aventure !</a>
+
 				</div>
 			</div>
 			<div class="four wide column">
@@ -300,29 +305,46 @@
 	<!-- Template mustache -->
 	<script id="templatePopUpProfile" type="text/template">
 		<div id="carteProfil">
-			<ul >
-				<li id="statut">Statut : {{status}}</li>
-				<li id="firstName">Prénom : {{prenom}} </li>
-				<li id="lastName">Nom : {{nom}} </li>
-				<li id="job">Job : {{profession}} </li>
-				<li id="location">Situation géographique : {{ville}}</li>
-				<li id="description">Description : {{description}} </li>
-				<li id="interaction">Mode d'interaction préféré : {{modeInteraction}} </li>
-			</ul>
-			<a class="ui red fluid button buttonProfile" id="{{id}}" href="/contact.html">Me contacter</a>
-		</div>
-		
-	</script>
-	<!-- Fin template mustache -->
 
-	<script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
-	<!--Début liens Leaflet à conserver -->
-	<script src="https://cdn.jsdelivr.net/leaflet/1.0.2/leaflet.js"></script>
-	<script src="https://cdn.jsdelivr.net/leaflet.markercluster/1.0.0/leaflet.markercluster.js"></script>
-	<!--Fin liens Leaflet à conserver -->
-	<script src="https://cdn.jsdelivr.net/mustache.js/2.3.0/mustache.min.js"></script>
-	<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="js/map.js"></script>
+			<div class="ui top fixed menu" id="menubottom">
+				<div class="item">
+					<img src="img/logo.png" class="logocard">
+				</div>
+				<div class="item">
+					<a class="ui black fluid button buttonProfile" id="{{id}}" href="/contact.html">Me contacter</a>
+				</div>
 	
+
+
+		</div>
+		<ul >
+			<h4 class="ui dividing centered header">{{status}}</h4>
+			<li class="nompren">{{prenom}} {{nom}}</li>
+			<li class="informationcard"> {{profession}} </li>
+			<li class="informationcard"> {{ville}}</li>
+			<li class="informationcard"> {{modeInteraction}} </li>
+			<li class="informationcard"> {{description}} </li>
+		</ul>
+	</div>
+</div>
+
+
+
+
+
+</script>
+
+</script>
+<!-- Fin template mustache -->
+
+<script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
+<!--Début liens Leaflet à conserver -->
+<script src="https://cdn.jsdelivr.net/leaflet/1.0.2/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/leaflet.markercluster/1.0.0/leaflet.markercluster.js"></script>
+<!--Fin liens Leaflet à conserver -->
+<script src="https://cdn.jsdelivr.net/mustache.js/2.3.0/mustache.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/map.js"></script>
+
 </body>
 </html>

@@ -1,17 +1,56 @@
 span {
-	color: grey;
-	font-family: Helvetica,Arial,sans-serif;
 
+	font-family: Helvetica,Arial,sans-serif;
+	color: black;
+	font-size: 23px;
 }
 
 li {
 	font-family: Helvetica,Arial,sans-serif;
-	font-size: 16px;
+	font-size: 20px;
 	list-style-type: none;
+	margin-left: 0;
+	margin: 3px;
+	color:grey;
+
+}
+ul {
+	padding:0;
+	margin-top: 6em;
 }
 
-#buttoncard{
-	margin-top: 2em;
+#carteProfil{
+	height: 27em;
+	width: 22em;
+
+}
+.informationcard{
+	text-align: center;
+}
+.nompren {
+	font-size: 23px;
+	text-align: center;
+}
+.ui.dividing.centered.header {
+	font-size: 27px;
 }
 
+.ui.inverted.bottom.fixed.menu {
+	height: 1em;
+}
+#menubottom {
+	height: 1em;
+}
 
+.logoCard {
+
+
+	a {
+		text-decoration: none;
+		color: white;
+
+		&:hover {
+			color: $red;
+		}
+	}
+}

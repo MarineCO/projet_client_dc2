@@ -35,7 +35,44 @@
 			});
 		},
 
-		smoothScrolls: function(){
+		initmap: function() {
+			var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+			var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+			var osm = new L.TileLayer(osmUrl, {minZoom: 1, maxZoom: 18, attribution: osmAttrib});
+
+			app.map.setView(new L.LatLng(46, 2),6);
+			app.map.addLayer(osm);
+			
+			// app.map.on('focus', function() { 
+			// 	app.map.scrollWheelZoom.enable();
+			// });
+			// app.map.on('blur', function() {
+			// 	app.map.scrollWheelZoom.disable();
+			// });
+		},
+
+		getDataCityMarrainage: function() {
+			$.ajax('/data')
+			.done(this.ajaxDone)
+			.fail(this.ajaxFail);
+		},
+		
+		ajaxDone: function(response) {
+			app.dataMarrainage = response.marrainage;
+
+			for (var i= 0; i < app.dataMarrainage.length; i++) {
+				var status = app.dataMarrainage[i].status;
+				var cityName = app.dataMarrainage[i].ville;
+				var idProfile = app.dataMarrainage[i].id;
+				app.getDataCoord(cityName, status, idProfile);
+			} 
+		},
+
+		ajaxFail: function() {
+			console.log('erreur');
+		},
+
+		smoothScrolls: function(){ 
 
 			$('.smoothconcept').on('click', function() {
 				var page = $(this).attr('href');

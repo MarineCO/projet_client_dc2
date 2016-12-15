@@ -8,4 +8,11 @@ public/.sass-cache/*
 style.css.map
 dataGeojsonReal.geojson
 
-test/*
+
+public/test.html
+public/test.css
+public/test.js
+public/test.geojson
+dataGeojson.geojson
+test/
+
