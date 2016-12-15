@@ -4,7 +4,8 @@ dataGeojson.geojson
 node_modules
 getJsonDC1-dev.js
 public/node_modules
-public/.sass-cache
+public/.sass-cache/*
 style.css.map
+dataGeojsonReal.geojson
 
 test/*
