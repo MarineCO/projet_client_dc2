@@ -27,7 +27,7 @@
 		},
 
 		readJsonDC1: function() {
-			fs.readFile(__dirname + '/realData.json', 'utf8', function(err, data){
+			fs.readFile(__dirname + '/dataMarrainage.json', 'utf8', function(err, data){
 				if (err) {
 					throw err;
 				}
@@ -151,7 +151,7 @@
 			//res.json(app.objectGeojson);
 			console.log("stop");
 			var stringGeojson = JSON.stringify(app.objectGeojson);
-			fs.writeFile('dataGeojsonReal.geoson', stringGeojson, 'utf8', function(err) {
+			fs.writeFile('dataGeojson.geojson', stringGeojson, 'utf8', function(err) {
 				if (err) {
 					console.log(err);
 				}
