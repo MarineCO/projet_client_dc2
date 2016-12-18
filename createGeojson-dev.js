@@ -27,7 +27,7 @@
 		},
 
 		readJsonDC1: function() {
-			fs.readFile(__dirname + '/dataMarrainage.json', 'utf8', function(err, data){
+			fs.readFile(__dirname + '/realData.json', 'utf8', function(err, data){
 				if (err) {
 					throw err;
 				}
@@ -39,19 +39,21 @@
 		createFeatures: function() {
 			var len = app.dataJsonDC1.marrainage.length;
 			for (var i = 0; i < len; i++) {
-				var feature = {
-					type: "Feature",
-					geometry: { type: "Point", coordinates: [] },
-					properties: app.dataJsonDC1.marrainage[i]
+				if (app.dataJsonDC1.marrainage[i].map === true) {
+					var feature = {
+						type: "Feature",
+						geometry: { type: "Point", coordinates: [] },
+						properties: app.dataJsonDC1.marrainage[i]
+					}
+					app.objectGeojson.features.push(feature)
 				}
-				app.objectGeojson.features.push(feature)
 			}
 			app.setInitialCounterMax();
 			app.deleteEmails();
 		},
 
 		setInitialCounterMax: function() {
-			app.counterMax = app.dataJsonDC1.marrainage.length;
+			app.counterMax = app.objectGeojson.features.length;
 			console.log("max = " + app.counterMax);
 			app.checkCityInArray();
 		},
@@ -151,7 +153,7 @@
 			//res.json(app.objectGeojson);
 			console.log("stop");
 			var stringGeojson = JSON.stringify(app.objectGeojson);
-			fs.writeFile('dataGeojson.geojson', stringGeojson, 'utf8', function(err) {
+			fs.writeFile('dataGeojsonReal.geojson', stringGeojson, 'utf8', function(err) {
 				if (err) {
 					console.log(err);
 				}

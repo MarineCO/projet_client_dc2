@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
- 
+
 
 
 
@@ -223,6 +223,7 @@
 	<h3 class="subtitleContainer" >Retrouvez les Duchess partout en France !</h3>
 
 	<div id="map" class="map"></div>
+	
 </div>
 
 <!-- Footer -->
@@ -310,29 +311,27 @@
 				<div class="item">
 					<img src="img/logo.png" class="logocard">
 				</div>
-				<div class="item">
-					<a class="ui black fluid button buttonProfile" id="{{id}}" href="/contact.html">Me contacter</a>
+				<div class="left aligned item">
+					{{status}}
 				</div>
-	
-
-
+			</div>
+			<ul >
+				<h4 class="ui dividing centered header">{{prenom}} {{nom}}</h4>
+				<li class="informationcard"> {{profession}} </li>
+				<li class="informationcard"> {{ville}}</li>
+				<li class="informationcard"> {{modeInteraction}} </li>
+				<button class="btnDescription ui red button">Voir la fiche complète</button>
+				<a id="buttonProfile" class="ui black fluid button buttonProfile" id="{{id}}" href="/contact.html">Me contacter</a>
+			</ul>
 		</div>
-		<ul >
-			<h4 class="ui dividing centered header">{{status}}</h4>
-			<li class="nompren">{{prenom}} {{nom}}</li>
-			<li class="informationcard"> {{profession}} </li>
-			<li class="informationcard"> {{ville}}</li>
-			<li class="informationcard"> {{modeInteraction}} </li>
-			<li class="informationcard"> {{description}} </li>
-		</ul>
-	</div>
+	</script>
+
 </div>
 
 
 
 
 
-</script>
 
 </script>
 <!-- Fin template mustache -->
