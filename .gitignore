@@ -12,4 +12,7 @@ dataGeojsonReal.geojson
 dataMarrainage.json
 realData.json
 
+data.json
+dataGeo.geojson
+
 test/

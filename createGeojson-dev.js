@@ -27,7 +27,7 @@
 		},
 
 		readJsonDC1: function() {
-			fs.readFile(__dirname + '/realData.json', 'utf8', function(err, data){
+			fs.readFile(__dirname + '/data.json', 'utf8', function(err, data){
 				if (err) {
 					throw err;
 				}
@@ -151,13 +151,13 @@
 		
 		sendJson: function() {
 			//res.json(app.objectGeojson);
-			console.log("stop");
 			var stringGeojson = JSON.stringify(app.objectGeojson);
-			fs.writeFile('dataGeojsonReal.geojson', stringGeojson, 'utf8', function(err) {
+			fs.writeFile('dataGeo.geojson', stringGeojson, 'utf8', function(err) {
 				if (err) {
 					console.log(err);
 				}
 			})
+			console.log("L'exécution du script est terminée. Le fichier dataGeo.geojson a été mis à jour.");
 		}
 
 	}
