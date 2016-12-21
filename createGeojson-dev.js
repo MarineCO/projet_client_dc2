@@ -1,6 +1,7 @@
 (function() {
 	var fs = require('fs');
 	var axios = require('axios');
+	var config = require('./config.js');
 
 	var app = {
 
@@ -27,7 +28,7 @@
 		},
 
 		readJsonDC1: function() {
-			fs.readFile(__dirname + '/data.json', 'utf8', function(err, data){
+			fs.readFile(__dirname + config.route_acces_json, 'utf8', function(err, data){
 				if (err) {
 					throw err;
 				}

@@ -4,7 +4,6 @@ var axios = require('axios');
 var fs = require('fs');
 
 var app = express();
-var getData = require('./getDataJson.js');
 var sendMail = require('./mailGun.js');
 
 app.use(express.static(__dirname + '/public'))
@@ -16,7 +15,15 @@ app.get('/', function(req, res){
 	res.send('index.html');
 });
 
-app.get('/data', getData);
+app.get('/data', function(req, res) {
+	fs.readFile(__dirname + '/dataGeo.geojson', 'utf8', function(err, data){
+		if (err) {
+			throw err;
+		}
+		var dataMarrainage = JSON.parse(data);
+		res.json(dataMarrainage);
+	});
+});
 
 app.post('/sendMail', sendMail);
 
