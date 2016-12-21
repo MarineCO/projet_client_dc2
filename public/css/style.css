@@ -174,48 +174,25 @@ html, body {
 .marker-cluster-large div {
   background-color: #5a5a5a; }
 
-span {
-  font-family: Helvetica,Arial,sans-serif;
-  color: black;
-  font-size: 23px; }
-
-li {
+.informationcard, .nompren, .status {
   font-family: Helvetica,Arial,sans-serif;
   font-size: 20px;
-  list-style-type: none;
-  margin-left: 0;
   margin: 3px;
-  color: grey; }
+  color: grey;
+  text-transform: capitalize; }
 
-ul {
+.profil {
   padding: 0;
-  margin-top: 6em; }
-
-#carteProfil {
-  height: 30em;
-  width: 22em; }
-
-.informationcard {
   text-align: center; }
+
+.status {
+  text-transform: capitalize;
+  color: black; }
 
 .nompren {
-  font-size: 23px;
-  text-align: center; }
-
-.ui.dividing.centered.header {
-  font-size: 27px; }
-
-.ui.inverted.bottom.fixed.menu {
-  height: 1em; }
-
-#menubottom {
-  height: 1em; }
-
-.logoCard a {
-  text-decoration: none;
-  color: white; }
-  .logoCard a:hover {
-    color: #BC2224; }
+  font-size: 22px;
+  text-align: center;
+  color: #BC2224; }
 
 .containerForm {
   width: 60%;
