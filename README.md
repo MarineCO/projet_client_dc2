@@ -48,9 +48,22 @@ Ensuite, taper en ligne de commande :
 
 Un fichier dataGeojson.geojson sera à placer à la racine du dossier.
 
+## III - Fonctionnement des fichiers
+
+**Server.js**
+Le fichier server.js permet de lancer le serveur sur le port 2929.
+
+**getDataJson.js**
+Appelé depuis la route "/data". Le fichier getDataJson.js va lire les données du geojson (“dataGeo.geojson”) et les renvoie pour qu’elles puissent être affichées sur la carte côté front.
+
+**mailGun.js**
+Appelé depuis la route “/sendMail” (lorsque l’utilisateur clique sur le bouton “envoyer un email” depuis la page contact.html). Le fichier va récupérer les données renseignées par l’internaute dans le formulaire d’envoi du mail. Il va lire le json (“data.json”) pour retrouver l’adresse email correspondante à l’ID de la destinataire. Il fait ensuite partir l’email en passant par le module MailGun-js. Ce module nécessite une clef API et un nom de domaine. Ceux-ci sont appelés dans les variables “api_key” et “domain”. Il est nécessaire de les définir dans un fichier config.js dont le modèle est défini dans le fichier config.example.js
+
+**createGeojson-dev.js**
+Le fichier createGeojson-dev.js n’est pas appelé depuis le serveur. Il permet de convertir le fichier json récupéré depuis le serveur du groupe DC1 (“data.json”) en fichier geojson (“dataGeo.geojson”). C’est ce fichier qui permet de gérer les requêtes envoyées à l’api Nominatim pour géolocaliser les marraines et filleules.
 
 
-## III - Le site 
+## IV - Le site 
 
 Via le site de Duchess-France, on accède au site d'AdoptADuchess. 
 
