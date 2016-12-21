@@ -52,9 +52,9 @@ Un fichier dataGeojson.geojson sera à placer à la racine du dossier.
 
 **Server.js**
 Le fichier server.js permet de lancer le serveur sur le port 2929.
-
-**getDataJson.js**
-Appelé depuis la route "/data". Le fichier getDataJson.js va lire les données du geojson (“dataGeo.geojson”) et les renvoie pour qu’elles puissent être affichées sur la carte côté front.
+La route "/" renvoie le fichier index.html.
+La route "/sendMail" appelle le fichier mailGun.js pour gérer l'envoi de mails en passant par le module mailGun.
+La route "/data" va lire les données du geojson (“dataGeo.geojson”) et les renvoie pour qu’elles puissent être affichées sur la carte côté front.
 
 **mailGun.js**
 Appelé depuis la route “/sendMail” (lorsque l’utilisateur clique sur le bouton “envoyer un email” depuis la page contact.html). Le fichier va récupérer les données renseignées par l’internaute dans le formulaire d’envoi du mail. Il va lire le json (“data.json”) pour retrouver l’adresse email correspondante à l’ID de la destinataire. Il fait ensuite partir l’email en passant par le module MailGun-js. Ce module nécessite une clef API et un nom de domaine. Ceux-ci sont appelés dans les variables “api_key” et “domain”. Il est nécessaire de les définir dans un fichier config.js dont le modèle est défini dans le fichier config.example.js
