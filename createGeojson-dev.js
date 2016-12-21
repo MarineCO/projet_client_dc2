@@ -1,7 +1,7 @@
-var fs = require('fs');
-var axios = require('axios');
-
-module.exports = function(req, res) {
+(function() {
+	var fs = require('fs');
+	var axios = require('axios');
+	var config = require('./config.js');
 
 	var app = {
 
@@ -18,9 +18,9 @@ module.exports = function(req, res) {
 
 		geo: [
 		{ville: "toulouse",
-		coord: [1, 1]},
-		{ville: "angers",
-		coord: [2, 2]}
+		coord: [1.4442469, 43.6044622]},
+		{ville: "paris",
+		coord: [2.3514992, 48.8566101]}
 		],
 
 		init: function() {
@@ -28,7 +28,7 @@ module.exports = function(req, res) {
 		},
 
 		readJsonDC1: function() {
-			fs.readFile(__dirname + '/dataMarrainage.json', 'utf8', function(err, data){
+			fs.readFile(__dirname + config.route_acces_json, 'utf8', function(err, data){
 				if (err) {
 					throw err;
 				}
@@ -40,12 +40,14 @@ module.exports = function(req, res) {
 		createFeatures: function() {
 			var len = app.dataJsonDC1.marrainage.length;
 			for (var i = 0; i < len; i++) {
-				var feature = {
-					type: "Feature",
-					geometry: { type: "Point", coordinates: [] },
-					properties: app.dataJsonDC1.marrainage[i]
+				if (app.dataJsonDC1.marrainage[i].map === true) {
+					var feature = {
+						type: "Feature",
+						geometry: { type: "Point", coordinates: [] },
+						properties: app.dataJsonDC1.marrainage[i]
+					}
+					app.objectGeojson.features.push(feature)
 				}
-				app.objectGeojson.features.push(feature)
 			}
 			app.setInitialCounterMax();
 			app.deleteEmails();
@@ -139,10 +141,10 @@ module.exports = function(req, res) {
 		},
 
 		nextFeatureOrStop: function() {
-			console.log(app.counter);
 			if (app.counter === app.counterMax) {
 				app.sendJson();
 			} else {
+				console.log(app.counter);
 				console.log("restart");
 				setTimeout(app.checkCityInArray, 1200);	
 			}
@@ -150,17 +152,18 @@ module.exports = function(req, res) {
 		
 		sendJson: function() {
 			//res.json(app.objectGeojson);
-			console.log("stop");
 			var stringGeojson = JSON.stringify(app.objectGeojson);
-			fs.writeFile('dataGeojson.geojson', stringGeojson, 'utf8', function(err) {
+			fs.writeFile('dataGeo.geojson', stringGeojson, 'utf8', function(err) {
 				if (err) {
 					console.log(err);
 				}
 			})
+			console.log("L'exécution du script est terminée. Le fichier dataGeo.geojson a été mis à jour.");
 		}
 
 	}
 
 	app.init();
 
-};
+})();
+

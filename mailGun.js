@@ -7,7 +7,7 @@ module.exports = function(req, res) {
 	var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 	var content = req.body
 
-	fs.readFile(__dirname + '/dataMarrainage.json', 'utf8', function(err, data){
+	fs.readFile(__dirname + config.route_acces_json, 'utf8', function(err, data){
 		if (err) {
 			throw err;
 		}

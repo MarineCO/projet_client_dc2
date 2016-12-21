@@ -223,6 +223,7 @@
 	<h3 class="subtitleContainer" >Retrouvez les Duchess partout en France !</h3>
 
 	<div id="map" class="map"></div>
+	
 </div>
 
 <!-- Footer -->
@@ -312,16 +313,16 @@
 				</div>
 				<h3 class="nompren">{{prenom}} {{nom}}</h3>
 				{{#profession}} 
-				<p class="informationcard"> {{profession}} </p>
+				<p class="informationcard" id="profession"> {{profession}} </p>
 				{{/profession}} 
 				{{#ville}}
-				<p class="informationcard"> {{ville}}</p>
+				<p class="informationcard" id="ville"> {{ville}}</p>
 				{{/ville}}
 				{{#modeInteraction}}
-				<p class="informationcard"> {{modeInteraction}} </p>
+				<p class="informationcard"> Mode d'intéraction préféré : {{modeInteraction}} </p>
 				{{/modeInteraction}}
 				{{#description}} 
-				<p class="informationcard"> {{description}} </p>
+				<textarea class="informationcard"> {{description}} </textarea>
 				{{/description}} 
 				<a class="ui black fluid button buttonProfile" id="{{id}}" href="/contact.html">Me contacter</a>
 			</div>
@@ -329,10 +330,6 @@
 	</div>
 
 
-
-
-
-</script>
 
 </script>
 <!-- Fin template mustache -->

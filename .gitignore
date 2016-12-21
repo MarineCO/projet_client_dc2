@@ -1,6 +1,4 @@
 config.js
-dataMarrainage.json
-dataGeojson.geojson
 node_modules
 getJsonDC1-dev.js
 public/node_modules
@@ -8,11 +6,13 @@ public/.sass-cache/*
 style.css.map
 dataGeojsonReal.geojson
 
-
-public/test.html
-public/test.css
-public/test.js
-public/test.geojson
 dataGeojson.geojson
-test/
+dataGeojsonReal.geojson
 
+dataMarrainage.json
+realData.json
+
+data.json
+dataGeo.geojson
+
+test/
