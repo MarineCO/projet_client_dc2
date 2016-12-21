@@ -62,6 +62,21 @@ Appelé depuis la route “/sendMail” (lorsque l’utilisateur clique sur le b
 **createGeojson-dev.js**
 Le fichier createGeojson-dev.js n’est pas appelé depuis le serveur. Il permet de convertir le fichier json récupéré depuis le serveur du groupe DC1 (“data.json”) en fichier geojson (“dataGeo.geojson”). C’est ce fichier qui permet de gérer les requêtes envoyées à l’api Nominatim pour géolocaliser les marraines et filleules.
 
+Les étapes suivies par le script du fichier createGeojson-dev.js sont les suivantes :
++ Lire le fichier JSON qui est à la racine du projet (récupéré auprès du groupe DC1).
++ Pour chaque élément de ce fichier, vérifier que la marraine ou la filleule ait accepté d’apparaître sur la carte. 
++ Si oui, stocker les données correspondantes à chaque profil dans un objet appelé “objectGeojson”.
++ Supprimer tous les emails de cet objet.
++ Pour chaque profil de cet objet, récupérer le nom de la ville indiquée comme lieu de résidence.
++ Comparer cette ville à un objet dans lequel se trouve déjà différentes villes avec les coordonnées correspondantes.
++ Si la ville indiquée sur le profil se trouve dans cet objet, attribuer les coordonnées au profil et passer au profil suivant.
++ Si la ville indiquée sur le profil ne se trouve pas dans cet objet, envoyer une requête vers l’api de Nominatim pour récupérer les coordonnées correspondant.
++ Si le retour de cette requête est positif (pas d’erreur ni de résultat indéfini), assigner les coordonnées au profil dans l’objet “objectGeojson”, puis passer au profil suivant (reprendre à l’étape 5).
++ Si le retour de cette requête est négatif (erreur ou résultat indéfini), afficher dans la console un message d’erreur indiquant le statut, le prénom, le nom, l’ID et la ville de résidence de la marraine ou de la filleule qui n’a pas pu être localisée. Supprimer son profil de l’object “objectGeojson”. Puis, passer au profil suivant (reprendre à l’étape 5).
++ A la fin du script, afficher dans la console le message “L'exécution du script est terminée. Le fichier dataGeo.geojson a été mis à jour”.
++ Réécrire le fichier Geojson “dataGeo.geojson” avec les données mises à jour.
+
+Remarque : comme demandé par l’API Nominatim, les requêtes sont organisées afin de ne pas dépasser le ratio d’une requête par seconde. L’exécution du script peut donc prendre un peu de temps. Attention, si le script est interrompu, le fichier Geojson ne sera pas mis à jour.
 
 ## IV - Le site 
 
