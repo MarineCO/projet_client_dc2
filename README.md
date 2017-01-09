@@ -86,7 +86,7 @@ Via le site de Duchess-France, on accède au site d'AdoptADuchess.
 
 Le menu nous redirige sur la page. Ici on a l'accueil avec la présentation du programme de Duchess.
 
-En cliquant sur "Concept" , on arrive sur cette partie de la single page application : 
+En cliquant sur "Concept" , on arrive sur cette partie de l'application : 
 
 ![Imgur](http://i.imgur.com/07UWsQK.png)
 
@@ -96,8 +96,7 @@ En cliquant sur "Rejoignez-nous", l'utilisateur reçoit les informations nécess
 
 ![Imgur](http://i.imgur.com/aHA5DmY.png)
 
-En appuyant sur "Carte", l'utilisateur arrive sur le corps de la single page application : 
-
+En appuyant sur "Carte", l'utilisateur arrive sur le corps de l'appliacation :
 ![Imgur](http://i.imgur.com/NFCR1yK.png)
 
 C'est la carte qui permet de montrer les marraines et les filleules selon leur position géographique. En cliquant sur un point ( marraine ou filleule ), on accède à la carte profil de la personne sélectionnée. Le visiteur a la possibilité de contacter par email la Duchess grâce à un bouton de contact sur la carte de profil . Il arrive sur cette page : 
@@ -105,7 +104,7 @@ C'est la carte qui permet de montrer les marraines et les filleules selon leur p
 ![Imgur](http://i.imgur.com/6kD2LZR.png)
 
 
-Une fois son mail envoyé, l'utilisateur est automatiquement redirigé vers la page d'accueil ( la single page application ). Un message vient confirmer l'envoi du mail.
+Une fois son mail envoyé, l'utilisateur est automatiquement redirigé vers la page d'accueil. Un message vient confirmer l'envoi du mail.
 
 Auteurs : 
 
