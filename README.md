@@ -82,7 +82,7 @@ Remarque : comme demandé par l’API Nominatim, les requêtes sont organisées 
 
 Via le site de Duchess-France, on accède au site d'AdoptADuchess. 
 
-![Imgur](http://i.imgur.com/zBNuf7u.png)
+![Imgur](http://i.imgur.com/dS7LfGk.png)
 
 Le menu nous redirige sur la page. Ici on a l'accueil avec la présentation du programme de Duchess.
 
@@ -100,13 +100,9 @@ En appuyant sur "Carte", l'utilisateur arrive sur le corps de la single page app
 
 ![Imgur](http://i.imgur.com/NFCR1yK.png)
 
-C'est la carte qui permet de montrer les marraines et les filleules selon leur position géographique. En cliquant sur un point ( marraine ou filleule ), on accède à la carte profil de la personne sélectionnée : 
+C'est la carte qui permet de montrer les marraines et les filleules selon leur position géographique. En cliquant sur un point ( marraine ou filleule ), on accède à la carte profil de la personne sélectionnée. Le visiteur a la possibilité de contacter par email la Duchess grâce à un bouton de contact sur la carte de profil . Il arrive sur cette page : 
 
-![Imgur](http://i.imgur.com/UWQgAjg.png)
-
-Le visiteur a la possibilité de contacter par email la Duchess grâce à un bouton de contact sur la carte de profil . Il arrive sur cette page : 
-
-![Imgur](http://i.imgur.com/PWwnF3V.png)
+![Imgur](http://i.imgur.com/6kD2LZR.png)
 
 
 Une fois son mail envoyé, l'utilisateur est automatiquement redirigé vers la page d'accueil ( la single page application ). Un message vient confirmer l'envoi du mail.
