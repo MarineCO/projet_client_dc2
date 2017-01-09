@@ -1,56 +1,46 @@
-span {
-
-	font-family: Helvetica,Arial,sans-serif;
-	color: black;
-	font-size: 23px;
-}
-
-li {
+.informationcard, .nompren, .status {
 	font-family: Helvetica,Arial,sans-serif;
 	font-size: 20px;
-	list-style-type: none;
-	margin-left: 0;
-	margin: 3px;
-	color:grey;
-
-}
-ul {
-	padding:0;
-	margin-top: 6em;
+	margin-top: 2px;
+	color: grey;
 }
 
-#carteProfil{
-	height: 30em;
-	width: 22em;
-
+#profession, #ville, .nompren {
+	text-transform: capitalize;
 }
-.informationcard{
+
+.profil {
+	padding: 0;
 	text-align: center;
 }
+
+.status {
+	text-transform: capitalize;
+	color: black;
+}
+
 .nompren {
-	font-size: 23px;
+	font-size: 22px;
 	text-align: center;
-}
-.ui.dividing.centered.header {
-	font-size: 27px;
+	color: $red;
 }
 
-.ui.inverted.bottom.fixed.menu {
-	height: 1em;
+textarea {
+	width: 100%;
+	height: 150px;
+	border: none;
 }
-#menubottom {
-	height: 1em;
-}
 
-.logoCard {
+// .logoCard {
 
 
-	a {
-		text-decoration: none;
-		color: white;
+// 	a {
+// 		text-decoration: none;
+// 		color: white;
 
-		&:hover {
-			color: $red;
-		}
-	}
-}
+// 		&:hover {
+// 			color: $red;
+// 		}
+// 	}
+// }
+

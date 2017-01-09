@@ -133,7 +133,6 @@
 				app.map.addLayer(clusters);
 			});
 		}
-
 	}
 
 	$(document).ready(function() {

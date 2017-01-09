@@ -306,29 +306,28 @@
 	<!-- Template mustache -->
 	<script id="templatePopUpProfile" type="text/template">
 		<div id="carteProfil">
-
-			<div class="ui top fixed menu" id="menubottom">
-				<div class="item">
-					<img src="img/logo.png" class="logocard">
+			<div class="profil">
+				<div class="entete">
+					<!-- <img src="img/logo.png" class="logocard"> -->
+					<h4 class="status">{{status}}</h4>
 				</div>
-				<div class="left aligned item">
-					{{status}}
-				</div>
+				<h3 class="nompren">{{prenom}} {{nom}}</h3>
+				{{#profession}} 
+				<p class="informationcard" id="profession"> {{profession}} </p>
+				{{/profession}} 
+				{{#ville}}
+				<p class="informationcard" id="ville"> {{ville}}</p>
+				{{/ville}}
+				{{#modeInteraction}}
+				<p class="informationcard"> Mode d'intéraction préféré : {{modeInteraction}} </p>
+				{{/modeInteraction}}
+				{{#description}} 
+				<textarea class="informationcard"> {{description}} </textarea>
+				{{/description}} 
+				<a class="ui black fluid button buttonProfile" id="{{id}}" href="/contact.html">Me contacter</a>
 			</div>
-			<ul >
-				<h4 class="ui dividing centered header">{{prenom}} {{nom}}</h4>
-				<li class="informationcard"> {{profession}} </li>
-				<li class="informationcard"> {{ville}}</li>
-				<li class="informationcard"> {{modeInteraction}} </li>
-				<a id="buttonProfile" class="ui black fluid button buttonProfile" id="{{id}}" href="/contact.html">Me contacter</a>
-			</ul>
 		</div>
-	</script>
-
-</div>
-
-
-
+	</div>
 
 
 
